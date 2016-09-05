@@ -1,0 +1,23 @@
+.footer {
+  background: $gray-lighter;
+  padding: 30px 0;
+  color: white;
+}
+.footer p {
+  margin-top: 17px;
+  color: $gray-darker;
+}
+.footer ul {
+  margin-top: 10px;
+}
+.footer a {
+  color: $gray-darker;
+  font-size: 30px;
+  letter-spacing: 5px;
+  transition: color 0.2s ease;
+}
+.footer a:hover{
+  color: white;
+  text-decoration:none;
+}
+

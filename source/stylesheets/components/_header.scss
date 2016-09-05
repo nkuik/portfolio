@@ -1,0 +1,28 @@
+.header-flat {
+  border: 1px solid #dce0e0;
+}
+.header-flat-details {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  padding-left: 0;
+}
+.header-flat p {
+  font-weight: normal;
+  font-size: 14px;
+  color: $gray-light;
+}
+.header-flat h1 {
+  font-size: 18px;
+  margin-top: 0;
+}
+.header-flat-owner {
+  padding: 20px;
+}
+.header-flat form {
+  margin: 20px 0;
+  margin-right: 0;
+  background: #F4F4F4;
+  padding: 15px;
+  border-radius: 3px;
+}
