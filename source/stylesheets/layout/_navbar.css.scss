@@ -24,6 +24,7 @@
   width: 50px;
 }
 
+
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
   display: flex;
@@ -132,4 +133,21 @@
 
 .navbar-blind {
   margin-bottom: 83px;
+}
+
+.navbar a {
+  flex: 0 1 auto;
+  color: $gray-darker;
+  font-size: 25px;
+  letter-spacing: 3px;
+  transition: color 0.1s ease;
+}
+.navbar a:hover{
+  color: white;
+  text-decoration:none;
+}
+
+.navbar-margin {
+  margin-top: 25px;
+  padding: 5px;
 }

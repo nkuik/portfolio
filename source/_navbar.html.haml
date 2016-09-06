@@ -1,19 +1,15 @@
 %div{class:"navbar-wagon navbar-wagon-fixed"}
   <!-- Logo -->
-  = link_to "/index.html", class: "navbar-wagon-brand" do
-    = image_tag "logo"
-  %end
+  %ul.list-inline.navbar.navbar-margin.navbar-wagon-brand
 
   <!-- Right Navigation -->
   %div{class:"navbar-wagon-right hidden-xs hidden-sm"}
 
-
-    <!-- Text link -->
-    = link_to "Additional Page", "/additionalpage.html", class: "navbar-wagon-item navbar-wagon-link"
-
+    = link_to "About", "/index.html", class: "navbar-wagon-item navbar-wagon-link"
+    = link_to "My Work", "/index.html", class: "navbar-wagon-item navbar-wagon-link"
 
     <!-- Button (call-to-action) -->
-    = link_to "Post Stuff", "https://google.com", class: "navbar-wagon-item navbar-wagon-button btn"
+    = link_to "My CV", "https://google.com", class: "navbar-wagon-item navbar-wagon-button btn"
 
   <!-- Dropdown appearing on mobile only -->
   %div{class:"navbar-wagon-item hidden-md hidden-lg"}
@@ -21,4 +17,4 @@
       %i.fa.fa-bars.dropdown-toggle{"data-toggle" => "dropdown"}
       %ul{class:"dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu"}
 
-.navbar-blind
+
