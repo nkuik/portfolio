@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Use title if it's in the page YAML frontmatter -->
-      = current_page.data.title || "The Middleman"
+      = current_page.data.title || "Nathan Kuik"
 
       = stylesheet_link_tag "all"
       = javascript_include_tag  "all"
@@ -23,8 +23,6 @@
       / <![endif]-->
 
   %body
-
     = partial "navbar"
-    %main
-      = yield
+    = yield
     = partial "footer"
