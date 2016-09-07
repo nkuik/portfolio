@@ -1,14 +1,18 @@
-%div.footer
+%footer.page-footer
   .container
     .row
-      .col-xs-6
+      %div{class:"col l6 s12"}
         %ul.list-inline.navbar.navbar-margin.navbar-wagon-brand
           = link_to "https://twitter.com/NathanKuik" do
-            %i.fa.fa-twitter
+            %i{class:"fa fa-twitter grey-text text-lighten-3"}
           = link_to "https://www.linkedin.com/in/nathankuik" do
-            %i.fa.fa-linkedin
+            %i{class:"fa fa-linkedin grey-text text-lighten-3"}
           = link_to "https://github.com/nkuik" do
-            %i.fa.fa-github
-      .col-xs-6.text-right
-        %p Nathan Kuik © 2016
+            %i{class:"fa fa-github grey-text text-lighten-3"}
+  .footer-copyright
+    .container
+      © 2016 Copyright Nathan Kuik
+
+
+
 
