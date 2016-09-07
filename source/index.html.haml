@@ -6,9 +6,9 @@
 .container
   .row
     %div{class:"col s8 offset-s2"}
-      .flow-text.center
+      %div{class:"flow-text center"}
         %h3 About Me
-        %p I used to be a clinical social worker. Then I moved to Denmark and couldn't really do that anymore. So I decided that I wanted to become a web developer. I'm relatively new, but I do have some work to show for it.
+        %p{id: "about", class:"section scrollspy"} I used to be a clinical social worker. Then I moved to Denmark and couldn't really do that anymore. So I decided that I wanted to become a web developer. I'm relatively new, but I do have some work to show for it.
         %a{class:"waves-effect waves-light btn-large"} See my Work
 
 .short-banner{style:"background-image: linear-gradient(-225deg, rgba(0,0,0,0.90) 0%, rgba(200,200,200,0.1) 50%), url('images/7030314.jpg')"}
@@ -17,7 +17,7 @@
 .container
   .row
     %div{class:"col s10 offset-s1"}
-      %div{class:"card"}
+      %div{id:"work", class:"card section scrollspy"}
         .card-image.waves-effect.waves-block.waves-light
           = image_tag "matchmythesis.jpg", class:"activator"
         .card-content
@@ -59,7 +59,7 @@
       %li
         %h4.center Thanks! I'll get back to you soon.
   %form{id:"contact-form"}
-    .row
+    .row{id:"contact", class:"section scrollspy"}
       %div{class:"input-field col s6"}
         %input{id:"first_name", type:"text", class:"validate"}
         %label{for:"first_name"}First Name

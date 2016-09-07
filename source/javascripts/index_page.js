@@ -1,6 +1,8 @@
 $(document).ready(function() {
   $(".button-collapse").sideNav();
 
+  $('.scrollspy').scrollSpy();
+
   $("#send-message").on("click", function(e) {
 
     var firstName = $("#first_name").val();
