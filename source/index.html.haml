@@ -1,30 +1,30 @@
 
-.banner{style:"background-image: linear-gradient(-225deg, rgba(0,20,60,0.2) 0%, rgba(0,80,100,0.2) 50%), url('images/8060623.jpg')"}
+.banner{style:"background-image: linear-gradient(-225deg, rgba(100,100,40,0.2) 0%, rgba(10,10,10,0.5) 60%), url('images/market-barcelona.png')"}
   .container
     %h1 Nathan Kuik
     %h5 Full Stack Developer
 .container
   .row
-    %div{class:"col s8 offset-s2"}
-      %div{class:"center padded top-margin"}
-        %h3{class:"teal-text text-darken-1"} About Me
-        %p{class:"section scrollspy flow-text"}
+    %div{class:"col s10 offset-s1 vertical-margin"}
+      %div{class:"card-panel teal darken-1 center padded top-margin"}
+        %h3{class:"white-text"} About Me
+        %p{class:"white-text section scrollspy flow-text"}
           I used to be a
           = link_to "clinical social worker,", "https://www.socialworkers.org/practice/clinical/default.asp", class:"teal-text darken-1"
           but then I moved to Denmark and it didn't work for me to do that here.
-        %p{id: "about", class:"section scrollspy flow-text"}
+        %p{id: "about", class:"section scrollspy flow-text white-text"}
           I've always been interested in coding, so I took the plunge and completed a 9-week bootcamp through
           = link_to "Le Wagon.", "https://www.lewagon.com/", class:"teal-text darken-1"
           I loved it and I've decided to make it my new career.
-        %p{class:"flow-text"}I'm new, but I still have some projects to show for it.
-        = link_to "See my work", "#work", class:"vertical-margin waves-effect waves-light btn-large teal darken-1"
+        %p{class:"flow-text white-text"}I'm new, but I still have some projects to show for it.
+        = link_to "See my work", "#work", class:"top-margin waves-effect waves-light btn-large white"
 
-.short-banner{style:"background-image: linear-gradient(-225deg, rgba(0,0,0,0.90) 0%, rgba(200,200,200,0.1) 50%), url('images/7030314.jpg')"}
+.short-banner{style:"background-image: linear-gradient(-225deg, rgba(0,0,0,0.90) 0%, rgba(200,200,200,0.2) 50%), url('images/barcelona-lips.jpg')"}
   %h4 Recent Work
 
 .container
-  .row
-    %div{class:"col s10 offset-s1"}
+  .row.padded
+    %div{class:"col s5"}
       %div{id:"work", class:"card section scrollspy"}
         .card-image.waves-effect.waves-block.waves-light
           = image_tag "matchmythesis.jpg", class:"activator"
@@ -40,9 +40,7 @@
             %i{class:"material-icons right"} close
           %p A project I worked on
 
-.container
-  .row
-    %div{class:"col s10 offset-s1"}
+    %div{class:"col s5"}
       %div{class:"card"}
         .card-image.waves-effect.waves-block.waves-light
           = image_tag "worldofdifference.png", class:"activator"
@@ -58,7 +56,7 @@
             %i{class:"material-icons right"} close
           %p Another project I worked on
 
-.short-banner{style:"background-image: linear-gradient(-225deg, rgba(10,10,10,.9) 0%, rgba(200,200,200,0.2) 50%), url('images/7050390.jpg')"}
+.short-banner{style:"background-image: linear-gradient(-225deg, rgba(10,10,10,.9) 0%, rgba(200,200,200,0.2) 50%), url('images/amsterdam.png')"}
   %h4 Contact Me
 
 .container
