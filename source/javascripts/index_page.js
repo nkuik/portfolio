@@ -5,8 +5,8 @@ $(document).ready(function() {
 
   $("#send-message").on("click", function(e) {
 
-    var firstName = $("#first_name").val();
-    var lastName = $("#last_name").val();
+    var name = $("#name").val();
+    // var lastName = $("#last_name").val();
     var email = $("#email").val();
     var message = $("#message").val();
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
     $.ajax({
     url: "https://formspree.io/nathan.kuik@gmail.com",
     method: "POST",
-    data: {name: firstName + " " + lastName, email: email, message: message},
+    data: {name: name, email: email, message: message},
     dataType: "json",
       success: function(data) {
         Materialize.toast('Your message was sent successfully!', 4500);
