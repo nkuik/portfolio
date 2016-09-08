@@ -1,25 +1,25 @@
 %nav
-  %div{class:"nav-wrapper"}
+  %div{class:"nav-wrapper white"}
     <!-- Logo -->
     %a{"data-activates": "mobile-demo", class:"button-collapse"}
-      %i{class:"material-icons"} menu
+      %i{class:"material-icons teal-text text-darken-1"} menu
     <!-- Right Navigation -->
     %ul{id:"nav-mobile", class:"right hide-on-med-and-down"}
       %li
-        = link_to "About", "#about"
+        = link_to "About", "#about", class: "teal-text text-darken-1"
       %li
-        = link_to "My Work", "#work"
+        = link_to "My Work", "#work", class: "teal-text text-darken-1"
       %li
-        = link_to "My CV", "/index.html"
+        = link_to "My CV", "https://www.dropbox.com/s/3lpyw17z2mlhhvc/nathan-kuik-junior-fullstack.pdf?raw=1", class: "teal-text text-darken-1", target: "_blank"
       %li
-        = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn"
+        = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
 
     %ul{class:"side-nav", id:"mobile-demo"}
       %li
-        = link_to "About", "#about"
+        = link_to "About", "#about", class: "teal-text text-darken-1"
       %li
-        = link_to "My Work", "#work"
+        = link_to "My Work", "#work", class: "teal-text text-darken-1"
       %li
-        = link_to "My CV", "/index.html"
+        = link_to "My CV", "/index.html", class: "teal-text text-darken-1"
       %li
-        = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn"
+        = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
