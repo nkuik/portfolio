@@ -3,6 +3,15 @@ $(document).ready(function() {
 
   $('.scrollspy').scrollSpy();
 
+  // var options = [
+  //   {selector: '#about-card', offset: 300, callback: function(el) {
+  //       // $("#about-card").removeClass("hidden");
+  //       Materialize.showStaggeredList($(el));
+  //     } }
+  // ];
+
+  // Materialize.scrollFire(options);
+
   $("#send-message").on("click", function(e) {
 
     var name = $("#name").val();

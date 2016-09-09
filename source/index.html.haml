@@ -1,91 +1,96 @@
 
-.banner{style:"background-image: linear-gradient(-225deg, rgba(100,100,40,0.2) 0%, rgba(10,10,10,0.5) 60%), url('images/market-barcelona.png')"}
+.banner{style:"background-image: linear-gradient(-200deg, rgba(200,200,10,0.2) 0%, rgba(50,50,50,0.6) 60%), url('images/desk.jpeg')"}
   .container
     %h1 Nathan Kuik
     %h5 Full Stack Developer
-.container
-  .row
-    %div{class:"col s10 offset-s1 vertical-margin"}
-      %div{class:"card-panel white padded top-margin center"}
-        %h3{class:"teal-text darken-1"} About Me
-        %p{class:"teal-text darken-1 section scrollspy flow-text"}
-          I used to be a
-          = link_to "clinical social worker,", "https://www.socialworkers.org/practice/clinical/default.asp", class:"teal-text darken-1"
-          but then I moved to Denmark and it didn't work for me to do that here.
-        %p{id: "about", class:"section scrollspy flow-text teal-text darken-1"}
-          I've always been interested in coding, so I took the plunge and completed a 9-week bootcamp through
-          = link_to "Le Wagon.", "https://www.lewagon.com/", class:"teal-text darken-1"
-          I loved it and I've decided to make it my new career.
-        %p{class:"flow-text teal-text darken-1"}I'm new, but I still have some projects to show for it.
-        = link_to "See my work", "#work", class:"top-margin waves-effect waves-light btn-large teal darken-1"
+.wrapper-gray
+  .container
+    .row
+      %div{class:"col s10 offset-s1 vertical-margin"}
+        %div{class:"card-panel white top-margin center"}
+          %h3{class:"teal-text darken-1"} About Me
+          %p{class:"teal-text darken-1 section scrollspy flow-text"}
+            I used to be a
+            = link_to "clinical social worker,", "https://www.socialworkers.org/practice/clinical/default.asp", class:"teal-text darken-1"
+            but then I moved to Denmark and it didn't work for me to do that here.
+          %p{id: "about", class:"section scrollspy flow-text teal-text darken-1"}
+            I've always been interested in coding, so I took the plunge and completed a 9-week bootcamp through
+            = link_to "Le Wagon.", "https://www.lewagon.com/", class:"teal-text darken-1"
+            I loved it and I've decided to make it my new career.
+          %p{class:"flow-text teal-text darken-1"}I'm new, but I still have some projects to show for it.
+          = link_to "See my work", "#work", class:"top-margin waves-effect waves-light btn-large teal darken-1"
 
 .short-banner{style:"background-image: linear-gradient(-225deg, rgba(0,0,0,0.90) 0%, rgba(200,200,200,0.2) 50%), url('images/barcelona-lips.jpg')"}
   %h4 Recent Work
+
 .container
   .row.padded
     .col.s6.offset-s3
       .card-panel.teal
         %h4.white-text.center Recent work
 
-.container
-  .row.padded
-    %div{class:"col s10 offset-s1"}
-      %div{id:"work", class:"card section scrollspy"}
-        .card-image.waves-effect.waves-block.waves-light
-          = image_tag "matchmythesis.jpg", class:"activator"
-        .card-content
-          %span{class:"card-title activator grey-text text-darken"}
-            Match My Thesis
-            %i{class:"material-icons right"} more_vert
-          %p
-            = link_to "check it out", "http://matchmythesis.herokuapp.com", class:"teal-text darken-1"
-        .card-reveal
-          %span{class:"card-title grey-text text-darken-4"}
-            Match My Thesis Rails App
-            %i{class:"material-icons right"} close
-          %p A project I worked on
-  .row.padded
-    %div{class:"col s10 offset-s1"}
-      %div{class:"card medium"}
-        .card-image.waves-effect.waves-block.waves-light
-          = image_tag "worldofdifference.png", class:"activator"
-        .card-content
-          %span{class:"card-title activator grey-text text-darken"}
-            World of Difference
-            %i{class:"material-icons right"} more_vert
-          %p
-            = link_to "check it out", "https://world-of-difference-nkuik.herokuapp.com/", class:"teal-text darken-1"
-        .card-reveal
-          %span{class:"card-title grey-text text-darken-4"}
-            World of Difference Rails App
-            %i{class:"material-icons right"} close
-          %p Another project I worked on
+.wrapper-gray
+  .container
+    .row.padded
+      %div{class:"col s10 offset-s1"}
+        %div{id:"work", class:"card section scrollspy"}
+          .card-image.waves-effect.waves-block.waves-light
+            = image_tag "matchmythesis.jpg", class:"activator"
+          .card-content
+            %span{class:"card-title activator grey-text text-darken"}
+              Match My Thesis
+              %i{class:"material-icons right"} more_vert
+            %p
+              = link_to "check it out", "http://matchmythesis.herokuapp.com", class:"teal-text darken-1"
+          .card-reveal
+            %span{class:"card-title grey-text text-darken-4"}
+              Match My Thesis Rails App
+              %i{class:"material-icons right"} close
+            %p A project I worked on
+    .row.padded
+      %div{class:"col s10 offset-s1"}
+        %div{class:"card medium"}
+          .card-image.waves-effect.waves-block.waves-light
+            = image_tag "worldofdifference.png", class:"activator"
+          .card-content
+            %span{class:"card-title activator grey-text text-darken"}
+              World of Difference
+              %i{class:"material-icons right"} more_vert
+            %p
+              = link_to "check it out", "https://world-of-difference-nkuik.herokuapp.com/", class:"teal-text darken-1"
+          .card-reveal
+            %span{class:"card-title grey-text text-darken-4"}
+              World of Difference Rails App
+              %i{class:"material-icons right"} close
+            %p Another project I worked on
 
 .short-banner{style:"background-image: linear-gradient(-225deg, rgba(10,10,10,.9) 0%, rgba(200,200,200,0.2) 50%), url('images/amsterdam.png')"}
   %h4 Contact Me
 
-.container
-  .row{id:"id-row", class:"col s12"}
-    %div{id:"success-message", class:"col s8 offset-s2 hidden"}
-      %ul{id:"staggered-list"}
-        %li
-          %h4.center.padded Thanks! I'll get back to you soon.
-    %form{id:"contact-form"}
-      %h5.center{class:"teal-text darken-1"} Drop me a line
-      .row{id:"contact", class:"section scrollspy"}
-        %div{class:"input-field col s6 offset-s3"}
-          %input{id:"name", type:"text", class:"validate"}
-          %label{for:"name"}Name
-      .row
-        %div{class:"input-field col s6 offset-s3"}
-          %input{id:"email", type:"email", class:"validate"}
-          %label{for:"email"}Email
-      .row
-        %div{class:"input-field col s6 offset-s3"}
-          %textarea{id:"message", class:"materialize-textarea"}
-          %label{for:"message"} Your Message
-      .row.center
-        %a{id:"send-message", class:"waves-effect waves-light btn teal darken-1"} Send
+.wrapper-gray
+  .container.top-margin
+    .row{id:"id-row"}
+      .card-panel.col.s8.offset-s2
+        %div{id:"success-message", class:"col s8 offset-s2 hidden"}
+          %ul{id:"staggered-list"}
+            %li
+              %h4.center.padded Thanks! I'll get back to you soon.
+        %form{id:"contact-form"}
+          %h5.center{class:"teal-text darken-1"} Drop me a line
+          .row{id:"contact", class:"section scrollspy"}
+            %div{class:"input-field col s8 offset-s2"}
+              %input{id:"name", type:"text", class:"validate"}
+              %label{for:"name"}Name
+          .row
+            %div{class:"input-field col s8 offset-s2"}
+              %input{id:"email", type:"email", class:"validate"}
+              %label{for:"email"}Email
+          .row
+            %div{class:"input-field col s8 offset-s2"}
+              %textarea{id:"message", class:"materialize-textarea"}
+              %label{for:"message"} Your Message
+          .row.center
+            %a{id:"send-message", class:"waves-effect waves-light btn teal darken-1"} Send
 
 
 
