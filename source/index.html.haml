@@ -32,7 +32,8 @@
 .wrapper-gray
   .container
     .row.padded
-      %div{class:"col s10 offset-s1"}
+      %div{class:"col s8 offset-s2"}
+        -# ID for the following div is for link scroll navigation
         %div{id:"work", class:"card section scrollspy"}
           .card-image.waves-effect.waves-block.waves-light
             = image_tag "matchmythesis.jpg", class:"activator"
@@ -48,8 +49,8 @@
               %i{class:"material-icons right"} close
             %p A project I worked on
     .row.padded
-      %div{class:"col s10 offset-s1"}
-        %div{class:"card medium"}
+      %div{class:"col s8 offset-s2"}
+        %div{class:"card"}
           .card-image.waves-effect.waves-block.waves-light
             = image_tag "worldofdifference.png", class:"activator"
           .card-content
@@ -64,11 +65,13 @@
               %i{class:"material-icons right"} close
             %p Another project I worked on
 
-.short-banner{style:"background-image: linear-gradient(-225deg, rgba(10,10,10,.9) 0%, rgba(200,200,200,0.2) 50%), url('images/amsterdam.png')"}
-  %h4 Contact Me
 
 .wrapper-gray
-  .container.top-margin
+  .short-banner{style:"background-image: linear-gradient(-225deg, rgba(10,10,10,.9) 0%, rgba(200,200,200,0.2) 50%), url('images/amsterdam.png')"}
+    %h4 Contact Me
+
+.wrapper-gray
+  .container
     .row{id:"id-row"}
       .card-panel.col.s8.offset-s2
         %div{id:"success-message", class:"col s8 offset-s2 hidden"}
@@ -91,8 +94,3 @@
               %label{for:"message"} Your Message
           .row.center
             %a{id:"send-message", class:"waves-effect waves-light btn teal darken-1"} Send
-
-
-
-
-
