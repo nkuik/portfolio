@@ -1,10 +1,15 @@
 %nav
-  %div{class:"nav-wrapper white"}
+  %div{class:"nav-wrapper white navbar-wagon"}
+    = link_to "/index.html", class:"navbar-wagon-brand" do
+      = image_tag "nathan.jpg"
+    / %div{class:"navbar-wagon-description"}
+    /   %p{class:"black-text navbar-wagon-secondary-description"} Nathan Kuik | Full Stack
+
     <!-- Logo -->
     %a{"data-activates": "mobile-demo", class:"button-collapse"}
       %i{class:"material-icons teal-text text-darken-1"} menu
     <!-- Right Navigation -->
-    %ul{id:"nav-mobile", class:"right hide-on-med-and-down"}
+    %ul{id:"nav-mobile", class:"hide-on-med-and-down"}
       %li
         = link_to "About", "#about", class: "teal-text text-darken-1"
       %li
@@ -16,10 +21,10 @@
 
     %ul{class:"side-nav", id:"mobile-demo"}
       %li
-        = link_to "About", "#about", class: "teal-text text-darken-1"
+        = link_to "About", "#about", class: "teal-text text-darken-1 waves-effect"
       %li
-        = link_to "My Work", "#work", class: "teal-text text-darken-1"
+        = link_to "My Work", "#work", class: "teal-text text-darken-1 waves-effect"
       %li
-        = link_to "My CV", "/index.html", class: "teal-text text-darken-1"
+        = link_to "My CV", "/index.html", class: "teal-text text-darken-1 waves-effect"
       %li
         = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"

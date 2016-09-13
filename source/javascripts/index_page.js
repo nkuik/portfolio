@@ -1,7 +1,21 @@
 $(document).ready(function() {
-  $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 250, // Default is 240
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
 
   $('.scrollspy').scrollSpy();
+
+  // var options = [
+  //   {selector: '#about-card', offset: 300, callback: function(el) {
+  //       // $("#about-card").removeClass("hidden");
+  //       Materialize.showStaggeredList($(el));
+  //     } }
+  // ];
+
+  // Materialize.scrollFire(options);
 
   $("#send-message").on("click", function(e) {
 
@@ -33,4 +47,3 @@ $(document).ready(function() {
 
   });
 });
-
