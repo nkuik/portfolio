@@ -1,5 +1,5 @@
 
-.banner{style:"background-image: linear-gradient(-200deg, rgba(200,200,10,0.2) 0%, rgba(50,50,50,0.6) 60%), url('images/desk.jpeg')"}
+.banner{style:"background-image: linear-gradient(-180deg, rgba(20,20,20,0.70) 0%, rgba(20,20,20,0.70) 90%), url('images/desk-2.jpg')"}
   .container
     %h1 Nathan Kuik
     %h5 Full Stack Developer
@@ -20,14 +20,10 @@
           %p{class:"flow-text teal-text darken-1"}I'm new, but I still have some projects to show for it.
           = link_to "See my work", "#work", class:"top-margin waves-effect waves-light btn-large teal darken-1"
 
-.short-banner{style:"background-image: linear-gradient(-225deg, rgba(0,0,0,0.90) 0%, rgba(200,200,200,0.2) 50%), url('images/barcelona-lips.jpg')"}
-  %h4 Recent Work
-
-.container
+.wrapper-gray
   .row.padded
-    .col.s6.offset-s3
-      .card-panel.teal
-        %h4.white-text.center Recent work
+    .card-panel.teal
+      %h4.white-text.center Recent work
 
 .wrapper-gray
   .container
@@ -66,9 +62,11 @@
             %p Another project I worked on
 
 
-.wrapper-gray
-  .short-banner{style:"background-image: linear-gradient(-225deg, rgba(10,10,10,.9) 0%, rgba(200,200,200,0.2) 50%), url('images/amsterdam.png')"}
-    %h4 Contact Me
+.container
+  .row.padded
+    .col.s6.offset-s3
+      .card-panel.teal
+        %h4.white-text.center Contact Me
 
 .wrapper-gray
   .container
