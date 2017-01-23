@@ -46,17 +46,16 @@ $(document).ready(function() {
     });
 
   });
-  // navbar show after scrll
+
   $(function () {
     $(window).scroll(function () {
             // set distance user needs to scroll before we fadeIn navbar
       if ($(this).scrollTop() > 80) {
-        $('.nav').(addClass('nav-fixed');
+        $('.nav').addClass('nav-fixed');
       } else {
-        $('.nav').(removeClass('nav-fixed');
+        $('.nav').removeClass('nav-fixed');
       }
     });
-
-
   });
+
 });

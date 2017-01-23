@@ -3,6 +3,7 @@
   .container
     %h1 Nathan Kuik
     %h5 Full Stack Developer
+    %h5 Consultant
 .wrapper-gray
   .container
     .row
@@ -29,10 +30,26 @@
   .container
     .row.padded
       %div{class:"col s8 offset-s2"}
+        %div{class:"card"}
+          .card-image.waves-effect.waves-block.waves-light
+            = image_tag "worlddifference.png", class:"activator"
+          .card-content
+            %span{class:"card-title activator grey-text text-darken"}
+              World of Difference
+              %i{class:"material-icons right"} more_vert
+            %p
+              = link_to "check it out", "https://world-of-difference-nkuik.herokuapp.com/", class:"teal-text darken-1"
+          .card-reveal
+            %span{class:"card-title grey-text text-darken-4"}
+              World of Difference Rails App
+              %i{class:"material-icons right"} close
+            %p Another project I worked on
+    .row.padded
+      %div{class:"col s8 offset-s2"}
         -# ID for the following div is for link scroll navigation
         %div{id:"work", class:"card section scrollspy"}
           .card-image.waves-effect.waves-block.waves-light
-            = image_tag "matchmythesis.jpg", class:"activator"
+            = image_tag "matchmythesis.png", class:"activator"
           .card-content
             %span{class:"card-title activator grey-text text-darken"}
               Match My Thesis
@@ -46,21 +63,34 @@
             %p A project I worked on
     .row.padded
       %div{class:"col s8 offset-s2"}
-        %div{class:"card"}
+        -# ID for the following div is for link scroll navigation
+        %div{id:"work", class:"card section scrollspy"}
           .card-image.waves-effect.waves-block.waves-light
-            = image_tag "worldofdifference.png", class:"activator"
+            = image_tag "medas.png", class:"activator"
           .card-content
             %span{class:"card-title activator grey-text text-darken"}
-              World of Difference
+              Medas Case Management
               %i{class:"material-icons right"} more_vert
-            %p
-              = link_to "check it out", "https://world-of-difference-nkuik.herokuapp.com/", class:"teal-text darken-1"
           .card-reveal
             %span{class:"card-title grey-text text-darken-4"}
-              World of Difference Rails App
+              Rails App
               %i{class:"material-icons right"} close
-            %p Another project I worked on
-
+            %p A project I worked on
+    .row.padded
+      %div{class:"col s8 offset-s2"}
+        -# ID for the following div is for link scroll navigation
+        %div{id:"work", class:"card section scrollspy"}
+          .card-image.waves-effect.waves-block.waves-light
+            = image_tag "klinikker.png", class:"activator"
+          .card-content
+            %span{class:"card-title activator grey-text text-darken"}
+              Klinikker
+              %i{class:"material-icons right"} more_vert
+          .card-reveal
+            %span{class:"card-title grey-text text-darken-4"}
+              Django App
+              %i{class:"material-icons right"} close
+            %p A project I worked on
 
 .container
   .row.padded
