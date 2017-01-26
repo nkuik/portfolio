@@ -47,15 +47,16 @@ $(document).ready(function() {
 
   });
 
-  $(function () {
-    $(window).scroll(function () {
-            // set distance user needs to scroll before we fadeIn navbar
-      if ($(this).scrollTop() > 80) {
-        $('.nav').addClass('nav-fixed');
-      } else {
-        $('.nav').removeClass('nav-fixed');
-      }
-    });
-  });
+// Fixed navbar
+  // $(function () {
+  //   $(window).scroll(function () {
+  //           // set distance user needs to scroll before we fadeIn navbar
+  //     if ($(this).scrollTop() > 80) {
+  //       $('.nav').addClass('nav-fixed');
+  //     } else {
+  //       $('.nav').removeClass('nav-fixed');
+  //     }
+  //   });
+  // });
 
 });
