@@ -46,7 +46,7 @@
             %span{class:"card-title grey-text text-darken-4"}
               World of Difference Rails App
               %i{class:"material-icons right"} close
-              %p Another project I worked on
+            %p Another project I worked on
     .row.padded
       %div{class:"col s8 offset-s2"}
         -# ID for the following div is for link scroll navigation
@@ -111,18 +111,18 @@
             %li
               %h4.center.padded Thanks! I'll get back to you soon.
         %form{id:"contact-form"}
-          %h5.center{class:"teal-text darken-1 padded"} Drop me a line
+          %h5.center{class:"teal-text darken-1 less-padded"} I look forward to hearing from you!
           .row{id:"contact", class:"section scrollspy"}
             %div{class:"input-field col s8 offset-s2"}
-              %input{id:"name", type:"text", class:"validate"}
-              %label{for:"name"} Name
+              %input{id:"name", type:"text"}
+              %label{class:"active", for:"name"} Name
           .row
             %div{class:"input-field col s8 offset-s2"}
-              %input{id:"email", type:"email", class:"validate"}
-              %label{for:"email"} Email
+              %input{id:"email", type:"email", class:"validate", name:"_replyto"}
+              %label{class:"active", for:"email"} Email
           .row
             %div{class:"input-field col s8 offset-s2"}
               %textarea{id:"message", class:"materialize-textarea"}
-              %label{for:"message"} Your Message
+              %label{class:"active", for:"message"} Your Message
           .row.center
             %a{id:"send-message", class:"waves-effect waves-light btn teal darken-1"} Send
