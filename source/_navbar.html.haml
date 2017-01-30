@@ -1,29 +1,29 @@
 %div{class:"navbar-fixed"}
   %nav{class:"nav white"}
-    %div{class:"nav-wrapper brand-logo"}
-      = link_to "#", class:"navbar-wagon-brand" do
+    %div{class:"nav-wrapper"}
+      = link_to "#", class:"logo"  do
         = image_tag "nathan.jpg"
 
       <!-- Logo -->
-    %a{"data-activates": "mobile-demo", class:"button-collapse"}
-      %i{class:"material-icons teal-text text-darken-1"} menu
-    <!-- Right Navigation -->
-    %ul{id:"nav-mobile", class:"right hide-on-med-and-down"}
-      %li
-        = link_to "About", "#about", class: "teal-text text-darken-1"
-      %li
-        = link_to "My Work", "#work", class: "teal-text text-darken-1"
-      %li
-        = link_to "My CV", "https://www.dropbox.com/s/3lpyw17z2mlhhvc/nathan-kuik-junior-fullstack.pdf?raw=1", class: "teal-text text-darken-1", target: "_blank"
-      %li
-        = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
+      %a{"data-activates": "mobile-demo", class:"button-collapse right"}
+        %i{class:"material-icons teal-text text-darken-1"} menu
+      <!-- Right Navigation -->
+      %ul{id:"nav-mobile", class:"right hide-on-med-and-down"}
+        %li
+          = link_to "About", "#about", class: "teal-text text-darken-1"
+        %li
+          = link_to "My Work", "#work", class: "teal-text text-darken-1"
+        %li
+          = link_to "My CV", "https://www.dropbox.com/s/3lpyw17z2mlhhvc/nathan-kuik-junior-fullstack.pdf?raw=1", class: "teal-text text-darken-1", target: "_blank"
+        %li
+          = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
 
-    %ul{class:"side-nav", id:"mobile-demo"}
-      %li
-        = link_to "About", "#about", class: "teal-text text-darken-1 waves-effect"
-      %li
-        = link_to "My Work", "#work", class: "teal-text text-darken-1 waves-effect"
-      %li
-        = link_to "My CV", "/index.html", class: "teal-text text-darken-1 waves-effect"
-      %li
-        = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
+      %ul{class:"side-nav", id:"mobile-demo"}
+        %li
+          = link_to "About", "#about", class: "teal-text text-darken-1 waves-effect"
+        %li
+          = link_to "My Work", "#work", class: "teal-text text-darken-1 waves-effect"
+        %li
+          = link_to "My CV", "/index.html", class: "teal-text text-darken-1 waves-effect"
+        %li
+          = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
