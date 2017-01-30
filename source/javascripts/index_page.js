@@ -40,7 +40,7 @@ $(document).ready(function() {
         Materialize.showStaggeredList("#staggered-list")
       },
       error: function(jqXHR) {
-        Materialize.toast('Oops, something went wrong!', 4500);
+        Materialize.toast('Oops, something went wrong! Try emailing me instead: nathan@nathankuik.com', 6500);
         alert(jqXHR.responseJSON);
       },
     });
