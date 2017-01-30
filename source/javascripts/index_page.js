@@ -29,7 +29,7 @@ $(document).ready(function() {
     // console.log("Here's my message: " + message);
 
     $.ajax({
-    url: "https://formspree.io/nathan.kuik@gmail.com",
+    url: "https://formspree.io/nathan@nathankuik.com",
     method: "POST",
     data: {name: name, email: email, message: message},
     dataType: "json",
@@ -39,9 +39,8 @@ $(document).ready(function() {
         $("#success-message").removeClass("hidden");
         Materialize.showStaggeredList("#staggered-list")
       },
-      error: function(jqXHR) {
+      error: function() {
         Materialize.toast('Oops, something went wrong! Try emailing me instead: nathan@nathankuik.com', 6500);
-        alert(jqXHR.responseJSON);
       },
     });
 
