@@ -8,11 +8,11 @@
     .row
       %div{class:"col s10 offset-s1 vertical-margin"}
         %div{class:"card-panel s10 offset-s1 white top-margin center"}
-          %h3{class:"teal-text darken-1"} About
-          %p{class:"teal-text darken-1 section scrollspy flow-text"}
+          %h3{id: "about", class:"scrollspy teal-text darken-1"} About
+          %p{class:"teal-text darken-1 section flow-text"}
             I'm a former (currently licensed) co-occurring therapist that's shifted into
             tech and web development. I live in Copenhagen and I love it.
-          %p{id: "about", class:"section scrollspy flow-text teal-text darken-1"}
+          %p{class:"section scrollspy flow-text teal-text darken-1"}
             I've always been interested in coding, so I took the plunge and completed a 9-week bootcamp through
             = link_to "Le Wagon", "https://www.lewagon.com/", class:"grey-text text-darken-1"
             and it's what I do now.
@@ -27,10 +27,10 @@
 .wrapper-gray
   .short-banner{class:"vertical-margin", style:"background-image: linear-gradient(-180deg, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.40) 90%), url('images/work.jpg')"}
     .container
-      %h4.white-text.center Recent work
+      %h4{id:"work", class:"white-text center"} Recent work
 
 .wrapper-gray
-  .container{id:"work"}
+  .container
     .row.padded
       %div{class:"col s8 offset-s2"}
         %div{class:"card"}
