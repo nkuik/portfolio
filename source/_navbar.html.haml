@@ -1,11 +1,11 @@
 %div{class:"navbar-fixed"}
   %nav{class:"nav white"}
     %div{class:"nav-wrapper"}
-      = link_to "#", class:"logo"  do
+      = link_to "#!", class:"logo"  do
         = image_tag "nathan.jpg"
 
       <!-- Logo -->
-      %a{"data-activates": "mobile-demo", class:"button-collapse right"}
+      %a{href:"#", "data-activates": "mobile-demo", class:"button-collapse right"}
         %i{class:"material-icons teal-text text-darken-1"} menu
       <!-- Right Navigation -->
       %ul{id:"nav-mobile", class:"right hide-on-med-and-down"}
@@ -14,10 +14,9 @@
         %li
           = link_to "My Work", "#work", class: "teal-text text-darken-1"
         %li
-          = link_to "My CV", "https://www.dropbox.com/s/3lpyw17z2mlhhvc/nathan-kuik-junior-fullstack.pdf?raw=1", class: "teal-text text-darken-1", target: "_blank"
+          = link_to "My CV", "https://www.dropbox.com/s/7kfgfpu4x0xix81/NathanKuikFullStack.pdf?raw=1", class: "teal-text text-darken-1", target: "_blank"
         %li
           = link_to "Contact Me", "#contact", class:"waves-effect waves-light btn teal darken-1"
-
       %ul{class:"side-nav", id:"mobile-demo"}
         %li
           = link_to "About", "#about", class: "teal-text text-darken-1 waves-effect"
