@@ -24,10 +24,6 @@ $(document).ready(function() {
     var email = $("#email").val();
     var message = $("#message").val();
 
-    // console.log("This is my name " + firstName + " " + lastName);
-    // console.log("This is my email " + email);
-    // console.log("Here's my message: " + message);
-
     $.ajax({
     url: "https://formspree.io/nathan@nathankuik.com",
     method: "POST",

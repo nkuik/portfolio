@@ -14,88 +14,97 @@
             tech and web development. I live in Copenhagen and I love it.
           %p{class:"section scrollspy flow-text teal-text darken-1"}
             I've always been interested in coding, so I took the plunge and completed a 9-week bootcamp through
-            = link_to "Le Wagon", "https://www.lewagon.com/", class:"grey-text text-darken-1"
+            = link_to "Le Wagon", "https://www.lewagon.com/", target: "_blank", class:"grey-text text-darken-2"
             and it's what I do now.
           %p{class:"flow-text teal-text darken-1"}
-            Above all, I'm a problem solver and love to look at issues from all possible angles. First (second, third, etc.)
-            ideas are rarely the best ones, and I enjoy getting to the root of the challenge.
+            Above all, I'm a problem solver and love to look at issues from all possible angles. Finding a solution means getting
+            to the root of the problem, and this is what I'm good at.
           %p{class:"flow-text teal-text darken-1"}
-            I'm open for ideas and projects, so
-            = link_to "send me a message!", "#contact", class:"grey-text text-darken-1"
+            I'm open to ideas and projects, so
+            = link_to "send me a message!", "#contact", class:"grey-text text-darken-2"
           = link_to "See my work", "#work", class:"top-margin bottom-margin waves-effect waves-light btn-large teal darken-1"
 
 .wrapper-gray
   .short-banner{class:"vertical-margin", style:"background-image: linear-gradient(-180deg, rgba(10,10,10,0.40) 0%, rgba(10,10,10,0.40) 90%), url('images/work.jpg')"}
     .container
-      %h4{id:"work", class:"white-text center"} Recent work
+      %h4{id:"work", class:"white-text center section scrollspy"} Recent work
 
 .wrapper-gray
   .container
     .row.padded
       %div{class:"col s8 offset-s2"}
         %div{class:"card"}
-          .card-image.waves-effect.waves-block.waves-light
-            = image_tag "worlddifference.png", class:"activator"
+          .card-image
+            = image_tag "worlddifference.png" #, class:"activator"
           .card-content
-            %span{class:"card-title activator grey-text text-darken"}
+            %span{class:"card-title activator black-text"}
               World of Difference
-              %i{class:"material-icons right"} more_vert
-            %p
-              = link_to "check it out", "https://world-of-difference-nkuik.herokuapp.com/", target: "_blank", class:"teal-text darken-1"
-          .card-reveal
-            %span{class:"card-title grey-text text-darken-4"}
-              World of Difference Rails App
-              %i{class:"material-icons right"} close
-            %p Another project I worked on
+              -# %i{class:"material-icons right"} more_vert
+            %p{class:"grey-text"}
+              First Rails app I worked on. Stack included Rails, SCSS, Javascript, and Postgres. I continued working on the app when I interned at Mellemfolkeligt Samvirke.
+          .card-action
+            = link_to "see the site", "https://world-of-difference-nkuik.herokuapp.com/", target: "_blank", class:"teal-text darken-1 waves-effect"
+          -# .card-reveal
+          -#   %span{class:"card-title grey-text text-darken-4"}
+          -#     World of Difference Rails App
+          -#     %i{class:"material-icons right"} close
+          -#   %p Another project I worked on. Let's try adding some more information to this card.
     .row.padded
       %div{class:"col s8 offset-s2"}
         -# ID for the following div is for link scroll navigation
-        %div{class:"card section scrollspy"}
-          .card-image.waves-effect.waves-block.waves-light
-            = image_tag "matchmythesis.png", class:"activator"
+        %div{class:"card"}
+          .card-image
+            = image_tag "matchmythesis.png" #, class:"activator"
           .card-content
-            %span{class:"card-title activator grey-text text-darken"}
+            %span{class:"card-title activator black-text"}
               Match My Thesis
-              %i{class:"material-icons right"} more_vert
-            %p
-              = link_to "check it out", "http://matchmythesis.com", target: "_blank", class:"teal-text darken-1"
-          .card-reveal
-            %span{class:"card-title grey-text text-darken-4"}
-              Match My Thesis Rails App
-              %i{class:"material-icons right"} close
-            %p A project I worked on
+              -# %i{class:"material-icons right"} more_vert
+            %p{class:"grey-text"}
+              Final two-week project for Le Wagon. Stack also includes Rails, SCSS, Javascript, and PostgreSQL. It is a live web app.
+          .card-action
+            = link_to "see the site", "http://matchmythesis.com", target: "_blank", class:"teal-text darken-1 waves-effect"
+          -# .card-reveal
+          -#   %span{class:"card-title grey-text text-darken-4"}
+          -#     Match My Thesis Rails App
+          -#     %i{class:"material-icons right"} close
+          -#   %p A project I worked on
     .row.padded
       %div{class:"col s8 offset-s2"}
         -# ID for the following div is for link scroll navigation
-        %div{id:"work", class:"card section scrollspy"}
-          .card-image.waves-effect.waves-block.waves-light
+        %div{id:"work", class:"card"}
+          .card-image
             = image_tag "medas.png", class:"activator"
           .card-content
-            %span{class:"card-title activator grey-text text-darken"}
+            %span{class:"card-title activator grey-text text-darken-3"}
               Medas Case Management
-              %i{class:"material-icons right"} more_vert
-          .card-reveal
-            %span{class:"card-title grey-text text-darken-4"}
-              Rails App
-              %i{class:"material-icons right"} close
-            %p A project I worked on
+              -# %i{class:"material-icons right"} more_vert
+            %p
+              Case management software used by over 80 Swiss health professionals.
+          -# .card-reveal
+          -#   %span{class:"card-title grey-text text-darken-4"}
+          -#     Rails App
+          -#     %i{class:"material-icons right"} close
+          -#   %p A project I worked on
     .row.padded
       %div{class:"col s8 offset-s2"}
         -# ID for the following div is for link scroll navigation
-        %div{id:"work", class:"card section scrollspy"}
-          .card-image.waves-effect.waves-block.waves-light
+        %div{id:"work", class:"card"}
+          .card-image
             = image_tag "klinikker.png", class:"activator"
           .card-content
-            %span{class:"card-title activator grey-text text-darken"}
+            %span{class:"card-title activator black-text"}
               Klinikker
-              %i{class:"material-icons right"} more_vert
-            %p
-              = link_to "check it out", "https://klinikker.dk", target: "_blank", class:"teal-text darken-1"
-          .card-reveal
-            %span{class:"card-title grey-text text-darken-4"}
-              Django App
-              %i{class:"material-icons right"} close
-            %p A project I worked on
+              -# %i{class:"material-icons right"} more_vert
+            %p{class:"grey-text"}
+              Web app where I work. The site is currently a Django app, but we are now doing a complete rewrite in Rails and Elm.
+              The new stack includes Rails, Elm, Javascript, Gulp, SCSS, and PostgreSQL.
+          .card-action
+            = link_to "see the site", "https://www.klinikker.dk", target: "_blank", class:"teal-text darken-1 waves-effect"
+          -# .card-reveal
+            -# %span{class:"card-title grey-text text-darken-4"}
+            -#   Django App
+            -#   %i{class:"material-icons right"} close
+            -# %p A project I worked on
 
 .wrapper-gray
   .short-banner{class:"vertical-margin", style:"background-image: linear-gradient(-180deg, rgba(20,20,20,0.70) 0%, rgba(20,20,20,0.70) 90%), url('images/contact.jpg')"}
