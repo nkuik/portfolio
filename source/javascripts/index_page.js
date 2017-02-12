@@ -25,7 +25,7 @@ $(document).ready(function() {
     var message = $("#message").val();
 
     $.ajax({
-    url: "https://formspree.io/nathan@nathankuik.com",
+    url: "http://formspree.io/nathan@nathankuik.com",
     method: "POST",
     data: {name: name, email: email, message: message},
     dataType: "json",
