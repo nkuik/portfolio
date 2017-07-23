@@ -2,13 +2,15 @@
   %nav{class:"nav white"}
     %div{class:"nav-wrapper"}
       = link_to "#!", class:"logo"  do
-        = image_tag "nathan.jpg"
+        = image_tag "nathan.png"
 
       <!-- Logo -->
       %a{href:"#", "data-activates": "mobile-demo", class:"button-collapse right"}
         %i{class:"material-icons teal-text text-darken-1"} menu
       <!-- Right Navigation -->
       %ul{id:"nav-mobile", class:"right hide-on-med-and-down"}
+        %li
+          = link_to "Blog", "https://medium.com/@nathan.kuik", class: "teal-text text-darken-1"
         %li
           = link_to "About", "#about", class: "teal-text text-darken-1"
         %li
