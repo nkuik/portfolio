@@ -1,41 +1,42 @@
 baseURL = "https://nathankuik.com/"
 languageCode = "en-us"
 title = "Nathan Kuik"
-theme = "hugo-natrium-theme"
-preserveTaxonomyNames = true
-rssLimit = 10
-paginate = 10
-pygmentsCodefences = true
-pygmentsStyle = "native"
+theme = "hugo-coder"
 
-[taxonomies]
-    category = "categories"
-    tag = "tags"
+paginate = 20
+canonifyurls = true
 
-[permalinks]
-    post = "/:slug/"
-    page = "/:slug/"
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = -110
-
-[[menu.main]]
-    name = "Tags"
-    url = "/tags"
-    weight = -120
-
-[[menu.main]]
-    name = "Categories"
-    url = "/categories"
-    weight = -130
+pygmentsstyle = "b2"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
 
 [params]
-    description = ""
+    author = "Nathan Kuik"
+    description = "Nathan Kuik's personal website"
+    keywords = "blog,developer,personal"
+    info = "Developer"
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
+    hideCredits = false
+    hideCopyright = false
+
+[[params.social]]
+    name = "Github"
+    weight = 1
+    url = "https://github.com/nkuik/"
+[[params.social]]
+    name = "Twitter"
+    weight = 2
+    url = "https://twitter.com/nathankuik/"
+[[params.social]]
+    name = "LinkedIn"
+    weight = 3
+    url = "https://www.linkedin.com/in/nathankuik/"
+
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
