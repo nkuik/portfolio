@@ -14,7 +14,7 @@ pygmentscodefencesguesssyntax = true
     author = "Nathan Kuik"
     description = "Nathan Kuik's personal website"
     keywords = "blog,developer,personal"
-    info = "Developer"
+    info = "Software Developer"
 
     hideCredits = false
     hideCopyright = false
@@ -31,6 +31,11 @@ pygmentscodefencesguesssyntax = true
     name = "LinkedIn"
     weight = 3
     url = "https://www.linkedin.com/in/nathankuik/"
+[[params.social]]
+    name = "Email"
+    weight = 4
+    url = "mailto:nathan@nathankuik.com"
+
 
 [[menu.main]]
     name = "Blog"
