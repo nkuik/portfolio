@@ -1,6 +1,6 @@
 baseURL = "https://nathankuik.com/"
 languageCode = "en-us"
-title = "Nathan Kuik"
+title = "Home"
 theme = "hugo-coder"
 
 paginate = 20
