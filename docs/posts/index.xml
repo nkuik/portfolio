@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Home</title>
+    <link>https://nathankuik.com/posts/</link>
+    <description>Recent content in Posts on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Aug 2019 19:15:43 +0200</lastBuildDate><atom:link href="https://nathankuik.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fighting Burnout, Burnout Series Pt. 2</title>
+      <link>https://nathankuik.com/posts/fighting-burnout/</link>
+      <pubDate>Tue, 13 Aug 2019 19:15:43 +0200</pubDate>
+      
+      <guid>https://nathankuik.com/posts/fighting-burnout/</guid>
+      <description>The second part of in my series on burnout: Fighting Burnout.</description>
+    </item>
+    
+    <item>
+      <title>What Actually is Burnout, Burnout Series Pt. 1</title>
+      <link>https://nathankuik.com/posts/what-actually-is-burnout/</link>
+      <pubDate>Wed, 06 Feb 2019 19:15:43 +0200</pubDate>
+      
+      <guid>https://nathankuik.com/posts/what-actually-is-burnout/</guid>
+      <description>I&amp;rsquo;ve begun a series on burnout and what we can do about. The first part of the series can be found here.</description>
+    </item>
+    
+    <item>
+      <title>My Mandatory Junior Web Dev Post</title>
+      <link>https://nathankuik.com/posts/my-mandatory-junior-web-dev-post/</link>
+      <pubDate>Sun, 10 Jun 2018 17:11:40 +0200</pubDate>
+      
+      <guid>https://nathankuik.com/posts/my-mandatory-junior-web-dev-post/</guid>
+      <description>My post about starting out in the world as a junior dev is on Medium here</description>
+    </item>
+    
+    <item>
+      <title>Danish Harm Reduction</title>
+      <link>https://nathankuik.com/posts/danish-harm-reduction/</link>
+      <pubDate>Fri, 03 Jun 2016 19:15:43 +0200</pubDate>
+      
+      <guid>https://nathankuik.com/posts/danish-harm-reduction/</guid>
+      <description>I wrote an article highlighting the effectiveness of harm reduction for the substance use and mental health blog The Fix, and it can be found here.</description>
+    </item>
+    
+  </channel>
+</rss>

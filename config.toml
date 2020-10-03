@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Home"
 theme = "hugo-coder"
 
+publishDir = "docs"
+
 paginate = 20
 canonifyurls = true
 

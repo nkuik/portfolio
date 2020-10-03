@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Home</title>
+    <link>https://nathankuik.com/talks/</link>
+    <description>Recent content in Talks on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Jun 2018 15:10:37 +0200</lastBuildDate><atom:link href="https://nathankuik.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Depression and Flow</title>
+      <link>https://nathankuik.com/talks/depression_and_flow/</link>
+      <pubDate>Sat, 23 Jun 2018 15:10:37 +0200</pubDate>
+      
+      <guid>https://nathankuik.com/talks/depression_and_flow/</guid>
+      <description>On June 16, I was fortunate enough to give my first conference workshop, entitled &amp;ldquo;Going with the Flow: Increasing Mindfulness and Flow Experiences to Fight Burnout and Depression&amp;rdquo; at Wordcamp Europe. I gave the workshop in partnership with Open Sourcing Mental Illness, a non-profit working to raise awareness of mental health issues in the tech industry.
+I created a repo with summarized information and resources, and I&amp;rsquo;ll be sure to post a video when it becomes available.</description>
+    </item>
+    
+  </channel>
+</rss>
