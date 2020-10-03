@@ -18,6 +18,7 @@ pygmentscodefencesguesssyntax = true
 
     hideCredits = false
     hideCopyright = false
+    colorscheme = "auto"
 
 [[params.social]]
     name = "Github"
