@@ -1,8 +1,6 @@
 #!/bin/sh
 
-THEME=$1
-
-if [[ $(git status -s) ]]
+if [ "`git status -s`" ]
 then
     echo "The working directory is dirty. Please commit any pending changes."
     exit 1;
@@ -21,16 +19,10 @@ echo "Removing existing files"
 rm -rf public/*
 
 echo "Generating site"
-hugo -t $THEME
-
-echo "Generating commit message"
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
-fi
+hugo
 
 echo "Updating gh-pages branch"
-cd public && git add --all && git commit -m "$msg"
+cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
 
-echo "Pushing to gh-pages branch"
-git push upstream gh-pages --force
+echo "Pushing to github"
+git push --all
