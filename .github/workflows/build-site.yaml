@@ -4,3 +4,21 @@ on:
   pull_request:
     branches:
       - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        version: [0.56.3, 0.57.2]
+        image: [busybox, alpine]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: hugo
+      uses: klakegg/actions-hugo@1.0.0
