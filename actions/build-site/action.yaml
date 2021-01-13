@@ -1,0 +1,5 @@
+name: 'Build site'
+description: 'Build site'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
