@@ -1,0 +1,16 @@
+name: 'Build site'
+description: 'Build site'
+inputs:
+  github_user:
+    description: 'github user'
+    required: false
+    default: 'github'
+  github_token:
+    description: 'github token'
+    required: true 
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github_user }}
+    - ${{ inputs.github_token }}

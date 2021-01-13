@@ -39,7 +39,6 @@ pygmentscodefencesguesssyntax = true
     weight = 4
     url = "mailto:nathan@nathankuik.com"
 
-
 [[menu.main]]
     name = "Blog"
     weight = 1

@@ -1,0 +1,21 @@
+name: build-site
+
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub Action Repo
+        uses: actions/checkout@v2
+        with:
+          repository: nkuik/portfolio 
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build site 
+        uses: ./actions/build-site
+        with:
+          github_user: github
+          github_token: ${{ secrets.GITHUB_TOKEN }}
