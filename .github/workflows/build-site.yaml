@@ -1,0 +1,6 @@
+name: database-diff 
+
+on:
+  pull_request:
+    branches:
+      - main
