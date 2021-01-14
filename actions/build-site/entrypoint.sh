@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: should replace with: https://github.com/klakegg/actions-hugo
+
 git clone https://github:$INPUT_GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
 
 git config --global user.name $INPUT_GITHUB_USER
@@ -9,7 +11,6 @@ pushd $(echo $GITHUB_REPOSITORY | awk -F'/' '{print $2}')
 git checkout $GITHUB_HEAD_REF
 git submodule update --init
 
-hugo version
 hugo
 
 git add .
