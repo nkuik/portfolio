@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: should replace with: https://github.com/klakegg/actions-hugo
+
 git clone https://github:$INPUT_GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
 
 git config --global user.name $INPUT_GITHUB_USER
