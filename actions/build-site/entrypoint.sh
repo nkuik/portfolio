@@ -9,7 +9,6 @@ pushd $(echo $GITHUB_REPOSITORY | awk -F'/' '{print $2}')
 git checkout $GITHUB_HEAD_REF
 git submodule update --init
 
-hugo version
 hugo
 
 git add .
