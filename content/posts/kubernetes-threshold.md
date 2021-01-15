@@ -45,7 +45,7 @@ Kubernetes has a million descriptions, but at its core, it is a first-class set 
 
 Since Kubernetes is one of the most popular choices for deploying scaled applications, cloud providers build their solutions to plug into the Kubernetes API. This means that creating the same Kubernetes object in clusters on different cloud providers often creates provider-specific resources, all while these resources look the same on the Kubernetes cluster. 
 
-Practically speaking, let’s say you want to create a load balancer on two clusters that exist in two different cloud providers. In Kubernetes land, you might be creating a “Service” object (which allows different services to reach each other by DNS instead of IP inside the cluster) with a load-balancer, which subsequently creates a cloud provider-specific resource. 
+Practically speaking, let’s say you want to create a load balancer on two clusters that exist in two different cloud providers. In Kubernetes land, you might be creating a “Service” object (which allows different services to reach each other by DNS instead of IP inside the cluster** with a load-balancer, which subsequently creates a cloud provider-specific resource. 
 
 But the beauty here is that you are thinking in terms of Kubernetes objects--a Service--and not in terms of AWS application load balancers or Google Cloud Engine GKE Ingress. In the land of the clouds, change is the only constant, and it is difficult to keep up with them. Having a frame of thinking about setup through the lens of Kubernetes objects can be advantageous.
 
@@ -53,23 +53,23 @@ But the beauty here is that you are thinking in terms of Kubernetes objects--a S
 
 So when should you use Kubernetes? Like everything in software, there are no hard-and-fast rules. That said, the following might be a place to start:
 
-### 1. Your application has substantial traffic
+**1. Your application has substantial traffic**
 
 Kubernetes has many features for handling zero-time deployments and the restarting of non-responsive/unhealthy services. While well-designed services can handle substantial traffic, it can be advantageous to have full control over how zero-downtime deployments will be rolled out.
 
-### 2. You are using a microservice architecture
+**2. You are using a microservice architecture**
 
 If running a microservice architecture, it’s almost guaranteed that these services need to talk to each other. This will likely be a nightmare on Kubernetes, but likely will be an even larger nightmare without it
 
-### 3. There are problems with your current deployment process--and there are enough resources and will to change it
+**3. There are problems with your current deployment process--and there are enough resources and will to change it**
 
 There will always be issues with an application's deployment strategy. However, there are times when these issues impact the business side of things. Kubernetes will of course in no automatically solve deployment-related issues (and could possibly even make them worse if the team has too little Kubernetes experience). But if implemented well, Kubernetes can iron out what otherwise might have been a toilsome deployment process.
 
-### 4. You have a considerable understanding of your application’s needs and how it might best be deployed 
+**4. You have a considerable understanding of your application’s needs and how it might best be deployed**
 
 What does the application require? Which components should be deployed in the cluster and which should be managed services? If these questions have relatively clear answers, Kubernetes could be an appropriate choice.
 
-### 5. You want to learn about Kubernetes!
+**5. You want to learn about Kubernetes!**
 
 There is no better way to learn about something by doing it, so if you're curious about Kubernetes, get a cluster running locally and poke around.
 
