@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Nathan Kuik">
+    <meta name="description" content="A Single Server Let’s imagine a small server running an application out in the wild. The application is small&ndash;it requires only a backend server, a database, and some static frontend code&ndash;but despite its size, the traffic on this server has been increasing in the last few weeks.
+As the traffic continues to grow, response times grow slower and users begin complaining about the application’s slowness. Thankful that the application is seeing increased traffic, the main developer of the application uses a late night to increase CPU and memory on the server (a vertical scale), which succeeds without issue.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Kubernetes Threshold"/>
+<meta name="twitter:description" content="A Single Server Let’s imagine a small server running an application out in the wild. The application is small&ndash;it requires only a backend server, a database, and some static frontend code&ndash;but despite its size, the traffic on this server has been increasing in the last few weeks.
+As the traffic continues to grow, response times grow slower and users begin complaining about the application’s slowness. Thankful that the application is seeing increased traffic, the main developer of the application uses a late night to increase CPU and memory on the server (a vertical scale), which succeeds without issue."/>
+
+    <meta property="og:title" content="The Kubernetes Threshold" />
+<meta property="og:description" content="A Single Server Let’s imagine a small server running an application out in the wild. The application is small&ndash;it requires only a backend server, a database, and some static frontend code&ndash;but despite its size, the traffic on this server has been increasing in the last few weeks.
+As the traffic continues to grow, response times grow slower and users begin complaining about the application’s slowness. Thankful that the application is seeing increased traffic, the main developer of the application uses a late night to increase CPU and memory on the server (a vertical scale), which succeeds without issue." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nathankuik.com/posts/kubernetes-threshold/" />
+<meta property="article:published_time" content="2021-01-15T08:00:00+01:00" />
+<meta property="article:modified_time" content="2021-01-15T08:00:00+01:00" />
+
+
+    <title>
+  The Kubernetes Threshold · Home
+</title>
+
+    
+      <link rel="canonical" href="https://nathankuik.com/posts/kubernetes-threshold/">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    
+      
+      
+      <link rel="stylesheet" href="https://nathankuik.com/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://nathankuik.com/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://nathankuik.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://nathankuik.com/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://nathankuik.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nathankuik.com/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=""
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://nathankuik.com/">
+      Home
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://nathankuik.com/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://nathankuik.com/talks/">Talks</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://nathankuik.com/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">The Kubernetes Threshold</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-01-15T08:00:00&#43;01:00'>
+                January 15, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="a-single-server">A Single Server</h2>
+<p>Let’s imagine a small server running an application out in the wild. The application is small&ndash;it requires only a backend server, a database, and some static frontend code&ndash;but despite its size, the traffic on this server has been increasing in the last few weeks.</p>
+<p>As the traffic continues to grow, response times grow slower and users begin complaining about the application’s slowness. Thankful that the application is seeing increased traffic, the main developer of the application uses a late night to increase CPU and memory on the server (a vertical scale), which succeeds without issue.</p>
+<p>This happens a few more times as traffic continues to grow, but soon increasing the VM&rsquo;s size becomes infeasible; the developer is tired of doing the scaling in the middle of the night and the increasing sizes provide diminishing improvements in response time.</p>
+<p>Tired of repeatedly increasing the size of the server, the developer explores the idea of running multiple servers of the same application (horizontal scaling). After discussing it with a few colleagues and reading some articles, the developer remembers why she did the vertical scaling in the first place: the overhead of moving towards horizontally scaled deployment seems annoying. What should the developer do?</p>
+<p>If you work or have worked at a company that ships products that people use, this situation might sound familiar. A deployment process that seemed easy and straightforward becomes toilsome and stressful, often spread across numerous servers, creating heavy cognitive load. However, when surveying all the alternatives for horizontal deployments, one can quickly become overwhelmed with the array of options and tools.</p>
+<p>So how does a single server become 2, 3, 4+ with the same initial setup? Should one just stick a load balancer between the two instances? Does a simple blue/green deployment with 2+ server instances get the job done? How about using some kind of container deployment service that is triggered every time code is merged into the main branch? What happens if one of the servers goes down?</p>
+<p>While the example above is simplistic, it underlines the main point of this article: deploying production-grade applications is inherently challenging. To keep services chugging and meeting expectations, there are many things to keep in mind.</p>
+<h2 id="production-application-non-negotiables">Production Application Non-negotiables</h2>
+<p>Deploying production-grade applications is a daunting task, and it requires planning for (at least) the following:</p>
+<ul>
+<li>Networking (DNS, IP, certificates, load-balancing, etc.)</li>
+<li>Compute (the “server”)</li>
+<li>Scaling (vertical &amp; horizontal)</li>
+<li>Persistence, Queues, &amp; Key-Value Store</li>
+<li>Roles &amp; Policies (who can do what?)</li>
+<li>Application Configuration &amp; Secrets</li>
+<li>Logging, Alerting, &amp; Health Checking</li>
+<li>Packaging, Bundling, Dependencies &amp; Artifacts</li>
+<li>Deployments</li>
+<li>Other aspects I forgot to include&hellip;</li>
+</ul>
+<p>At the end of the day, the items in the list above are production non-negotiables. If the non-negotiables aren’t implemented or implemented poorly, the application won’t run, will become unreachable, or will die without any warning or insight. But the extent to which you “see” these non-negotiables depends on where the application is deployed, and subsequently, how much you are paying for it.</p>
+<p>Unless you are running everything on bare metal, on Raspberry Pis in your bedroom/garage, or “on-prem” (😱), your cloud provider likely offers a myriad of services to get your application stood up on their machines.</p>
+<p>And this brings us to Kubernetes. Reaching for Kubernetes begins to make sense when faced with the cloud provider mishmash for deploying production applications; instead of cobbling together a rag-tag group of proprietary, cloud-based services, it might be better to harness the power of an open-source, highly-tested, hugely-supported solution built from Google’s internal experience of running highly available services.</p>
+<p>Kubernetes has a million descriptions, but at its core, it is a first-class set of objects and APIs that handle almost every aspect (or at least Google’s interpretation) of deploying production applications. The fact that Kubernetes is (nearly) the whole package is one reason that all cloud providers offer their form of Kubernetes-as-a-service. Many cloud providers provide their version of hosted services, such as databases, Elasticsearch, Redis, etc. but few services cover the kind of breadth Kubernetes does.</p>
+<p>Since Kubernetes is one of the most popular choices for deploying scaled applications, cloud providers build their solutions to plug into the Kubernetes API. This means that creating the same Kubernetes object in clusters on different cloud providers often creates provider-specific resources, all while these resources look the same on the Kubernetes cluster.</p>
+<p>Practically speaking, let’s say you want to create a load balancer on two clusters that exist in two different cloud providers. In Kubernetes land, you might be creating a “Service” object (which allows different services to reach each other by DNS instead of IP inside the cluster) with a load-balancer, which subsequently creates a cloud provider-specific resource.</p>
+<p>But the beauty here is that you are thinking in terms of Kubernetes objects&ndash;a Service&ndash;and not in terms of AWS application load balancers or Google Cloud Engine GKE Ingress. In the land of the clouds, change is the only constant, and it is difficult to keep up with them. Having a frame of thinking about setup through the lens of Kubernetes objects can be advantageous.</p>
+<h2 id="when-kubernetes-might-be-a-good-fit">When Kubernetes Might Be a Good Fit</h2>
+<p>So when should you use Kubernetes? Like everything in software, there are no hard-and-fast rules. That said, the following might be a place to start:</p>
+<h3 id="1-your-application-has-substantial-traffic">1. Your application has substantial traffic</h3>
+<p>Kubernetes has many features for handling zero-time deployments and the restarting of non-responsive/unhealthy services. While well-designed services can handle substantial traffic, it can be advantageous to have full control over how zero-downtime deployments will be rolled out.</p>
+<h3 id="2-you-are-using-a-microservice-architecture">2. You are using a microservice architecture</h3>
+<p>If running a microservice architecture, it’s almost guaranteed that these services need to talk to each other. This will likely be a nightmare on Kubernetes, but likely will be an even larger nightmare without it</p>
+<h3 id="3-there-are-problems-with-your-current-deployment-process--and-there-are-enough-resources-and-will-to-change-it">3. There are problems with your current deployment process&ndash;and there are enough resources and will to change it</h3>
+<p>There will always be issues with an application&rsquo;s deployment strategy. However, there are times when these issues impact the business side of things. Kubernetes will of course in no automatically solve deployment-related issues (and could possibly even make them worse if the team has too little Kubernetes experience). But if implemented well, Kubernetes can iron out what otherwise might have been a toilsome deployment process.</p>
+<h3 id="4-you-have-a-considerable-understanding-of-your-applications-needs-and-how-it-might-best-be-deployed">4. You have a considerable understanding of your application’s needs and how it might best be deployed</h3>
+<p>What does the application require? Which components should be deployed in the cluster and which should be managed services? If these questions have relatively clear answers, Kubernetes could be an appropriate choice.</p>
+<h3 id="5-you-want-to-learn-about-kubernetes">5. You want to learn about Kubernetes!</h3>
+<p>There is no better way to learn about something by doing it, so if you&rsquo;re curious about Kubernetes, get a cluster running locally and poke around.</p>
+<h2 id="the-kubernetes-threshold">The Kubernetes Threshold</h2>
+<p>If you or the company already has guardrails for deploying production applications, and there aren’t huge problems with this existing setup, it is likely prudent to do deploy the “old” way. This assumes that many/all of the production non-negotiables have been met, and the way they are implemented isn’t causing business-critical issues. Sometimes it is enough to simply set up a load balancer and deploying a second VM with an additional instance of your application, for example.</p>
+<p>The decision to deploy on Kubernetes, whether it’s managed or not, should not be taken lightly. Understanding the trade-offs between the services/resources necessary for a non-Kubernetes setup vs. those necessary for a Kubernetes setup is paramount before rolling out a new Kubernetes cluster. The point at which it makes “more sense” to deploy on Kubernetes is what we might call the Kubernetes threshold.</p>
+<p>Every situation is different, and every situation’s Kubernetes threshold will be different. By considering this as early as possible, it will provide benefits to people on all sides of the application. If your applications aren’t already running on Kubernetes, imagining where your project and organizational Kubernetes threshold lies will benefit you and your team as your work continues.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         Nathan Kuik 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="https://nathankuik.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
