@@ -13,7 +13,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.ref }}
-        fetch-depth: 0
 
     - name: Checkout submodules
       uses: textbook/git-checkout-submodule-action@master
@@ -37,5 +36,4 @@ jobs:
 
         git add .
         git commit -m "Build site for $GITHUB_HEAD_REF" || true
-        git checkout $GITHUB_HEAD_REF
         git push -f origin $GITHUB_HEAD_REF || true
