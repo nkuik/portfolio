@@ -15,6 +15,7 @@ jobs:
     - name: install submodule
       run: |
         git submodule update --init
+        export
 
     - name: hugo
       uses: klakegg/actions-hugo@1.0.0
