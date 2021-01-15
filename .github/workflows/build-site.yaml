@@ -16,9 +16,13 @@ jobs:
 
     - name: install submodule and checkout PR branch
       run: |
+        ls
+        git diff
         git submodule update --init
         # git checkout $GITHUB_HEAD_REF
         rm -r docs
+        ls
+        git diff
 
     - name: hugo
       uses: klakegg/actions-hugo@1.0.0
@@ -27,10 +31,12 @@ jobs:
 
     - name: push changes
       run: |
+        ls
+        git diff
         git config --global user.name "github-actions"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-        git add docs
+        git add .
         git commit -m "Build site for $GITHUB_HEAD_REF"
         git push -f origin $GITHUB_HEAD_REF
 
