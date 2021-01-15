@@ -11,14 +11,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
 
-    - name: install submodule
+    - name: install submodule and checkout PR branch
       run: |
         git submodule update --init
-        export
+        # git checkout $GITHUB_HEAD_REF
+        rm -r docs
 
     - name: hugo
       uses: klakegg/actions-hugo@1.0.0
+      with:
+        target: docs
 
     - name: push changes
       run: |
