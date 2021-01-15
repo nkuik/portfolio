@@ -1,0 +1,67 @@
+[
+  {
+    "url": "http://localhost:35869/404.html",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_404_html-2021_01_15_09_04_30.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_404_html-2021_01_15_09_04_30.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92,
+      "pwa": 0.5
+    }
+  },
+  {
+    "url": "http://localhost:35869/index.html",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_index_html-2021_01_15_09_04_35.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_index_html-2021_01_15_09_04_35.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.88,
+      "pwa": 0.5
+    }
+  },
+  {
+    "url": "http://localhost:35869/about/index.html",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_about_index_html-2021_01_15_09_04_39.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_about_index_html-2021_01_15_09_04_39.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92,
+      "pwa": 0.5
+    }
+  },
+  {
+    "url": "http://localhost:35869/categories/index.html",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_categories_index_html-2021_01_15_09_04_44.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_categories_index_html-2021_01_15_09_04_44.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92,
+      "pwa": 0.5
+    }
+  },
+  {
+    "url": "http://localhost:35869/posts/index.html",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_posts_index_html-2021_01_15_09_04_48.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_posts_index_html-2021_01_15_09_04_48.report.json",
+    "summary": {
+      "performance": 0.99,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.92,
+      "pwa": 0.5
+    }
+  }
+]
