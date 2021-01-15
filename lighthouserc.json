@@ -1,9 +1,9 @@
 {
     "ci": {
-        "url": ["http://localhost/", "http://localhost/posts/"],
+        "url": ["http://localhost/"],
         "assert": {
             "assertions": {
-                "categories:performance": ["error", { "minScore": 0.96 }],
+                "categories:performance": ["error", { "minScore": 0.95 }],
                 "categories:accessibility": ["error", { "minScore": 1 }]
             }
         },
