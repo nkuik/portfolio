@@ -1,11 +1,11 @@
 [
   {
-    "url": "http://localhost:34611/404.html",
+    "url": "http://localhost:44697/404.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_404_html-2021_01_15_09_35_23.report.html",
-    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_404_html-2021_01_15_09_35_23.report.json",
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_404_html-2021_01_18_08_03_50.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_404_html-2021_01_18_08_03_50.report.json",
     "summary": {
-      "performance": 0.99,
+      "performance": 0.96,
       "accessibility": 1,
       "best-practices": 1,
       "seo": 0.92,
@@ -13,10 +13,10 @@
     }
   },
   {
-    "url": "http://localhost:34611/index.html",
+    "url": "http://localhost:44697/index.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_index_html-2021_01_15_09_35_27.report.html",
-    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_index_html-2021_01_15_09_35_27.report.json",
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_index_html-2021_01_18_08_03_55.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_index_html-2021_01_18_08_03_55.report.json",
     "summary": {
       "performance": 0.99,
       "accessibility": 1,
@@ -26,10 +26,10 @@
     }
   },
   {
-    "url": "http://localhost:34611/about/index.html",
+    "url": "http://localhost:44697/about/index.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_about_index_html-2021_01_15_09_35_32.report.html",
-    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_about_index_html-2021_01_15_09_35_32.report.json",
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_about_index_html-2021_01_18_08_04_00.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_about_index_html-2021_01_18_08_04_00.report.json",
     "summary": {
       "performance": 0.99,
       "accessibility": 1,
@@ -39,12 +39,12 @@
     }
   },
   {
-    "url": "http://localhost:34611/categories/index.html",
+    "url": "http://localhost:44697/categories/index.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_categories_index_html-2021_01_15_09_35_36.report.html",
-    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_categories_index_html-2021_01_15_09_35_36.report.json",
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_categories_index_html-2021_01_18_08_04_05.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_categories_index_html-2021_01_18_08_04_05.report.json",
     "summary": {
-      "performance": 0.99,
+      "performance": 1,
       "accessibility": 1,
       "best-practices": 1,
       "seo": 0.92,
@@ -52,10 +52,10 @@
     }
   },
   {
-    "url": "http://localhost:34611/posts/index.html",
+    "url": "http://localhost:44697/posts/index.html",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_posts_index_html-2021_01_15_09_35_40.report.html",
-    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_posts_index_html-2021_01_15_09_35_40.report.json",
+    "htmlPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_posts_index_html-2021_01_18_08_04_09.report.html",
+    "jsonPath": "/home/runner/work/portfolio/portfolio/.lighthouseci/localhost-_posts_index_html-2021_01_18_08_04_09.report.json",
     "summary": {
       "performance": 0.99,
       "accessibility": 1,
