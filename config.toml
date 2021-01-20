@@ -22,6 +22,9 @@ pygmentscodefencesguesssyntax = true
     hideCopyright = false
     colorscheme = "auto"
 
+[params.cloudflare]
+    token = "f32f4e211b3a405cadd13585a2bb4310"
+
 [[params.social]]
     name = "Github"
     weight = 1
