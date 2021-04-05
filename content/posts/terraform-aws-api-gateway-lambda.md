@@ -21,10 +21,15 @@ First, we will need the Lambda function that we want to run behind the Gateway e
 ```
 ├── source/
 │   ├── lambda_function.py
-├── custom_layer.zip
+│   ├── requirements.txt
+│   ├── aws-layer/
+│   │   ├── custom_layer.zip
+│   │   ├── python/lib/python28.8/site-packages/<pip installed packages>
 ├── main.tf
-├── variables.tf (TODO)
+├── variables.tf
 ```
+
+The code for this post can be found in [this repo](https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo).
 
 ## Lambda Function
 
@@ -33,36 +38,53 @@ This setup requires zipping a custom Lambda layer of the dependencies required f
 After the layer is zipped, the TCL for creating the Lambda function (`main.tf`) would look something like this:
 
 ```
+resource "aws_iam_role" "this" {
+  name               = "aws-lambda-${var.name}"
+  assume_role_policy = data.aws_iam_policy_document.assume.json
+}
+
+data "aws_iam_policy_document" "assume" {
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
+}
+
 data "archive_file" "source" {
   type        = "zip"
   source_dir  = "${path.module}/source"
   output_path = "${path.module}/.temp/source.zip"
 }
 
-resource "aws_lambda_layer_version" "custom_layer" {
+resource "aws_lambda_layer_version" "this" {
   layer_name       = "aws-lambda-${var.name}-custom-layer"
-  filename         = "${path.module}/custom_layer.zip"
-  source_code_hash = filebase64sha256("${path.module}/custom_layer.zip")
-  lifecycle {
-  # TODO: Why needed?
-    ignore_changes = [filename]
-  }
+  filename         = "${path.module}/source/aws-layer/custom-layer.zip"
+  source_code_hash = filebase64sha256("${path.module}/source/aws-layer/custom-layer.zip")
 }
 
-resource "aws_lambda_function" "" {
-  function_name                  = var.name
-  filename                       = data.archive_file.source.output_path
-  handler                        = "lambda_function.lambda_handler"
-  description                    = "A useful lambda function"
-  source_code_hash               = data.archive_file.source.output_base64sha256
-  runtime                        = "python3.8"
-  memory_size                    = 256
-  timeout                        = 60
-  reserved_concurrent_executions = 5
-  role                           = aws_iam_role.this.arn
+resource "aws_lambda_function" "this" {
+  function_name    = var.name
+  filename         = data.archive_file.source.output_path
+  handler          = "lambda_function.lambda_handler"
+  description      = var.description
+  source_code_hash = data.archive_file.source.output_base64sha256
+  runtime          = "python3.8"
+  memory_size      = 256
+  timeout          = 60
+  role             = aws_iam_role.this.arn
   layers = [
-    aws_lambda_layer_version.custom_layer.arn,
+    aws_lambda_layer_version.this.arn,
   ]
+}
+
+resource "aws_cloudwatch_log_group" "this" {
+  name              = "/aws/lambda/${aws_lambda_function.this.function_name}"
+  retention_in_days = 14
 }
 ```
 
@@ -71,72 +93,12 @@ resource "aws_lambda_function" "" {
 The Lambda function now exists, but we cannot trigger it by hitting and endpoint yet. Let's create the API Gateway and "hook" our Lambda into it. This requires the creation of some additional API Gateway resources, but doing so will allow additional Lambda functions to be added to separate paths on your API Gateway. Creating the Gateway, stage, integration, and route is something like this:
 
 ```
-resource "aws_apigatewayv2_api" "this" {
-  name          = var.name
-  protocol_type = "HTTP"
+api gateway code
+```
 
-  cors_configuration {
-    allow_headers = [
-      "content-type",
-    ]
-    allow_methods = [
-      "POST",
-    ]
-    allow_origins = [
-      "*",
-    ]
-  }
-}
+Domain Name & Route 53
 
-resource "aws_apigatewayv2_stage" "this" {
-  api_id      = aws_apigatewayv2_api.this.id
-  name        = "$default"
-  auto_deploy = true
-
-  access_log_settings {
-    destination_arn = aws_cloudwatch_log_group.this.arn
-    format = jsonencode(
-      {
-        httpMethod              = "$context.httpMethod"
-        ip                      = "$context.identity.sourceIp"
-        protocol                = "$context.protocol"
-        requestId               = "$context.requestId"
-        requestTime             = "$context.requestTime"
-        responseLength          = "$context.responseLength"
-        routeKey                = "$context.routeKey"
-        status                  = "$context.status"
-        integrationStatus       = "$context.integration.integrationStatus"
-        integrationErrorMessage = "$context.integration.error"
-      }
-    )
-  }
-}
-
-resource "aws_apigatewayv2_integration" "this" {
-  api_id           = aws_apigatewayv2_api.this.id
-  integration_type = "AWS_PROXY"
-
-  connection_type      = "INTERNET"
-  description          = var.description
-  integration_method   = "POST"
-  integration_uri      = aws_lambda_function.this.invoke_arn
-}
-
-resource "aws_apigatewayv2_route" "this" {
-  api_id    = aws_apigatewayv2_api.this.id
-  route_key = "POST /v1/webhook"
-
-  target = "integrations/${aws_apigatewayv2_integration.this.id}"
-}
-
-resource "aws_lambda_permission" "this" {
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.this.arn
-  principal     = "apigateway.amazonaws.com"
-
-  source_arn = "${aws_apigatewayv2_api.this.execution_arn}/*/*"
-}
-
+```
 resource "aws_apigatewayv2_domain_name" "this" {
   domain_name = "${var.name}${local.unstarred_domain_name}"
 
@@ -147,14 +109,6 @@ resource "aws_apigatewayv2_domain_name" "this" {
   }
 }
 
-output {
-
-}
-```
-
-
-Route53
-```
 resource "aws_route53_record" "this" {
   name    = aws_apigatewayv2_domain_name.this.domain_name
   type    = "A"
