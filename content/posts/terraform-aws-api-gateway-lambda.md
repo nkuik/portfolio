@@ -88,15 +88,17 @@ resource "aws_cloudwatch_log_group" "this" {
 }
 ```
 
-## The Gateway
+## API Gateway V2
 
 The Lambda function now exists, but we cannot trigger it by hitting and endpoint yet. Let's create the API Gateway and "hook" our Lambda into it. This requires the creation of some additional API Gateway resources, but doing so will allow additional Lambda functions to be added to separate paths on your API Gateway. Creating the Gateway, stage, integration, and route is something like this:
 
 ```
-api gateway code
+api gateway code goes here
 ```
 
-Domain Name & Route 53
+# TODO: make note about the stage logging
+
+## Domain Name, Certificate, & Route 53
 
 ```
 resource "aws_apigatewayv2_domain_name" "this" {
@@ -128,9 +130,8 @@ resource "aws_apigatewayv2_api_mapping" "this" {
 }
 
 ```
+### Disable execute endpoint
 
-
-Disable execute endpoint
 ```
 resource "aws_apigatewayv2_api" "this" {
   name                         = var.name
@@ -148,3 +149,6 @@ resource "aws_apigatewayv2_api" "this" {
   }
 }
 ```
+## Summary
+
+At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it's only a `POST` method as of now, and if you read up on the [AWS API Gateway documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html), you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers. 
