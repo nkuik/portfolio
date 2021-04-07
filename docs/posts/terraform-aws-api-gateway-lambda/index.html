@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Nathan Kuik">
+    <meta name="description" content="API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&rsquo;t find an end-to-end solution that just worked &ldquo;out of the box.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Terraforming a Custom Domained Lambda Function Behind V2 API Gateway"/>
+<meta name="twitter:description" content="API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&rsquo;t find an end-to-end solution that just worked &ldquo;out of the box."/>
+
+    <meta property="og:title" content="Terraforming a Custom Domained Lambda Function Behind V2 API Gateway" />
+<meta property="og:description" content="API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&rsquo;t find an end-to-end solution that just worked &ldquo;out of the box." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-04T07:00:00&#43;01:00" />
+<meta property="article:modified_time" content="2021-04-04T07:00:00&#43;01:00" />
+
+
+
+    <title>
+  Terraforming a Custom Domained Lambda Function Behind V2 API Gateway · Home
+</title>
+
+    
+      <link rel="canonical" href="https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/">
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+      integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css">
+    
+      
+      
+      <link rel="stylesheet" href="https://nathankuik.com/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://nathankuik.com/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://nathankuik.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://nathankuik.com/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://nathankuik.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nathankuik.com/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=""
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://nathankuik.com/">
+      Home
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://nathankuik.com/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://nathankuik.com/talks/">Talks</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://nathankuik.com/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Terraforming a Custom Domained Lambda Function Behind V2 API Gateway</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-04-04T07:00:00&#43;01:00'>
+                April 4, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="api-gateway-v1-rest-vs-v2-websocket-and-http">API Gateway V1 (REST) vs. V2 (Websocket and HTTP)</h2>
+<p>I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&rsquo;t find an end-to-end solution that just worked &ldquo;out of the box.&rdquo; This post shows how to create the following using Terraform:</p>
+<ul>
+<li>V2 HTTP API Gateway</li>
+<li>Gateway stage, route, and integration that point to a Lambda Function</li>
+<li>Adding a custom domain using Amazon Certificate Manager and Route 53</li>
+</ul>
+<p>It is important to note that API Gateway has two versions, with V1 allowing a REST API and V2 allowing HTTP and Websocket. In looking over the resources I would need to create and the considerations of my API, I decided that HTTP would be enough and that the V2 Gateway setup was more straightforward. You can read more about the difference between the HTTP and REST API Gateways <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html">here</a> and a brief overview of the additional features introduced in API Gateway V2 can be found <a href="https://www.serverless.com/blog/api-gateway-v2-http-apis">here</a>.</p>
+<h2 id="setup">Setup</h2>
+<p>First, we will need the Lambda function that we want to run behind the Gateway endpoint. There are several ways to do this, but since this post is mostly about the setup <em>around</em> the function, and less about the function itself, we will take an easier route of storing the code directly in the Terraform directory (change me). For this post, while it won&rsquo;t really be reusable, due to the custom creation of the custom layer, we will assume a module structure of something like this:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">├── source/
+│   ├── lambda_function.py
+│   ├── requirements.txt
+│   ├── aws-layer/
+│   │   ├── custom_layer.zip
+│   │   ├── python/lib/python28.8/site-packages/&lt;pip installed packages&gt;
+├── main.tf
+├── variables.tf
+</code></pre></div><p>The code for this post can be found in <a href="https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo">this repo</a>.</p>
+<h2 id="lambda-function">Lambda Function</h2>
+<p>This setup requires zipping a custom Lambda layer of the dependencies required for the <code>lambda_function.py</code>; creating the <code>.zip</code> is largely a matter of <code>pip</code> installing and then zipping. A more detailed description of layer-creation can be found in <a href="https://towardsdatascience.com/building-custom-layers-on-aws-lambda-35d17bd9abbb">this guide</a>.</p>
+<p>After the layer is zipped, the TCL for creating the Lambda function (<code>main.tf</code>) would look something like this:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_iam_role&#34; &#34;this&#34; {
+  name               = &#34;aws-lambda-${var.name}&#34;
+  assume_role_policy = data.aws_iam_policy_document.assume.json
+}
+
+data &#34;aws_iam_policy_document&#34; &#34;assume&#34; {
+  statement {
+    effect  = &#34;Allow&#34;
+    actions = [&#34;sts:AssumeRole&#34;]
+
+    principals {
+      type        = &#34;Service&#34;
+      identifiers = [&#34;lambda.amazonaws.com&#34;]
+    }
+  }
+}
+
+data &#34;archive_file&#34; &#34;source&#34; {
+  type        = &#34;zip&#34;
+  source_dir  = &#34;${path.module}/source&#34;
+  output_path = &#34;${path.module}/.temp/source.zip&#34;
+}
+
+resource &#34;aws_lambda_layer_version&#34; &#34;this&#34; {
+  layer_name       = &#34;aws-lambda-${var.name}-custom-layer&#34;
+  filename         = &#34;${path.module}/source/aws-layer/custom-layer.zip&#34;
+  source_code_hash = filebase64sha256(&#34;${path.module}/source/aws-layer/custom-layer.zip&#34;)
+}
+
+resource &#34;aws_lambda_function&#34; &#34;this&#34; {
+  function_name    = var.name
+  filename         = data.archive_file.source.output_path
+  handler          = &#34;lambda_function.lambda_handler&#34;
+  description      = var.description
+  source_code_hash = data.archive_file.source.output_base64sha256
+  runtime          = &#34;python3.8&#34;
+  memory_size      = 256
+  timeout          = 60
+  role             = aws_iam_role.this.arn
+  layers = [
+    aws_lambda_layer_version.this.arn,
+  ]
+}
+
+resource &#34;aws_cloudwatch_log_group&#34; &#34;this&#34; {
+  name              = &#34;/aws/lambda/${aws_lambda_function.this.function_name}&#34;
+  retention_in_days = 14
+}
+</code></pre></div><h2 id="api-gateway-v2">API Gateway V2</h2>
+<p>The Lambda function now exists, but we cannot trigger it by hitting and endpoint yet. Let&rsquo;s create the API Gateway and &ldquo;hook&rdquo; our Lambda into it. This requires the creation of some additional API Gateway resources, but doing so will allow additional Lambda functions to be added to separate paths on your API Gateway. Creating the Gateway, stage, integration, and route is something like this:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">api gateway code goes here
+</code></pre></div><h1 id="todo-make-note-about-the-stage-logging">TODO: make note about the stage logging</h1>
+<h2 id="domain-name-certificate--route-53">Domain Name, Certificate, &amp; Route 53</h2>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_apigatewayv2_domain_name&#34; &#34;this&#34; {
+  domain_name = &#34;${var.name}${local.unstarred_domain_name}&#34;
+
+  domain_name_configuration {
+    certificate_arn = var.certificate_arn
+    endpoint_type   = &#34;REGIONAL&#34;
+    security_policy = &#34;TLS_1_2&#34;
+  }
+}
+
+resource &#34;aws_route53_record&#34; &#34;this&#34; {
+  name    = aws_apigatewayv2_domain_name.this.domain_name
+  type    = &#34;A&#34;
+  zone_id = var.route_53_zone_id
+
+  alias {
+    name                   = aws_apigatewayv2_domain_name.this.domain_name_configuration[0].target_domain_name
+    zone_id                = aws_apigatewayv2_domain_name.this.domain_name_configuration[0].hosted_zone_id
+    evaluate_target_health = true
+  }
+}
+
+resource &#34;aws_apigatewayv2_api_mapping&#34; &#34;this&#34; {
+  api_id      = aws_apigatewayv2_api.this.id
+  domain_name = aws_apigatewayv2_domain_name.this.id
+  stage       = aws_apigatewayv2_stage.this.id
+}
+
+</code></pre></div><h3 id="disable-execute-endpoint">Disable execute endpoint</h3>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_apigatewayv2_api&#34; &#34;this&#34; {
+  name                         = var.name
+  protocol_type                = &#34;HTTP&#34;
+  disable_execute_api_endpoint = true
+
+  cors_configuration {
+    allow_headers = [
+      &#34;content-type&#34;,
+    ]
+    allow_methods = [&#34;POST&#34;]
+    allow_origins = [
+      &#34;*&#34;,
+    ]
+  }
+}
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it&rsquo;s only a <code>POST</code> method as of now, and if you read up on the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">AWS API Gateway documentation</a>, you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         Nathan Kuik 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="https://nathankuik.com/js/dark-mode.min.aee9c8a464eb7b3534c7110f7c5e169e7039e2fd92710e0626d451d6725af137.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "f32f4e211b3a405cadd13585a2bb4310"}'></script>
+
+
+  </body>
+
+</html>
