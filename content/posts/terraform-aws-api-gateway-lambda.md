@@ -130,6 +130,7 @@ resource "aws_apigatewayv2_api_mapping" "this" {
 }
 
 ```
+
 ### Disable execute endpoint
 
 ```
@@ -149,6 +150,7 @@ resource "aws_apigatewayv2_api" "this" {
   }
 }
 ```
+
 ## Summary
 
 At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it's only a `POST` method as of now, and if you read up on the [AWS API Gateway documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html), you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers. 
