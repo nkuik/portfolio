@@ -6,7 +6,7 @@ draft: false
 
 ## API Gateway V1 (REST) vs. V2 (Websocket and HTTP)
 
-I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn't find an end-to-end solution that just worked "out of the box." This post shows how to create the following using Terraform:
+I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific pieces of this setup out there on the interwebs, I didn't find an end-to-end solution that just worked "out of the box." This post shows how to create the following using Terraform:
 
 * V2 HTTP API Gateway
 * Gateway stage, route, and integration that point to a Lambda Function
