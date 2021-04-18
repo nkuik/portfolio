@@ -11,20 +11,20 @@
     <meta name="keywords" content="blog,developer,personal">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Terraforming a Custom Domained Lambda Function Behind V2 API Gateway"/>
+<meta name="twitter:title" content="Terraform Custom Domained Lambda Function Behind V2 API Gateway"/>
 <meta name="twitter:description" content="API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&rsquo;t find an end-to-end solution that just worked &ldquo;out of the box."/>
 
-    <meta property="og:title" content="Terraforming a Custom Domained Lambda Function Behind V2 API Gateway" />
+    <meta property="og:title" content="Terraform Custom Domained Lambda Function Behind V2 API Gateway" />
 <meta property="og:description" content="API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&rsquo;t find an end-to-end solution that just worked &ldquo;out of the box." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-04T07:00:00&#43;01:00" />
-<meta property="article:modified_time" content="2021-04-04T07:00:00&#43;01:00" />
+<meta property="article:published_time" content="2021-04-18T12:00:00&#43;01:00" />
+<meta property="article:modified_time" content="2021-04-18T12:00:00&#43;01:00" />
 
 
 
     <title>
-  Terraforming a Custom Domained Lambda Function Behind V2 API Gateway · Home
+  Terraform Custom Domained Lambda Function Behind V2 API Gateway · Home
 </title>
 
     
@@ -122,19 +122,19 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Terraforming a Custom Domained Lambda Function Behind V2 API Gateway</h1>
+          <h1 class="title">Terraform Custom Domained Lambda Function Behind V2 API Gateway</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fa fa-calendar" aria-hidden="true"></i>
-              <time datetime='2021-04-04T07:00:00&#43;01:00'>
-                April 4, 2021
+              <time datetime='2021-04-18T12:00:00&#43;01:00'>
+                April 18, 2021
               </time>
             </span>
             <span class="reading-time">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              4-minute read
+              8-minute read
             </span>
           </div>
           
@@ -163,10 +163,10 @@
 │   │   ├── python/lib/python28.8/site-packages/&lt;pip installed packages&gt;
 ├── main.tf
 ├── variables.tf
-</code></pre></div><p>The code for this post can be found in <a href="https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo">this repo</a>.</p>
+</code></pre></div><p>The example code for this post can be found in <a href="https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo">this repo</a>.</p>
 <h2 id="lambda-function">Lambda Function</h2>
 <p>This setup requires zipping a custom Lambda layer of the dependencies required for the <code>lambda_function.py</code>; creating the <code>.zip</code> is largely a matter of <code>pip</code> installing and then zipping. A more detailed description of layer-creation can be found in <a href="https://towardsdatascience.com/building-custom-layers-on-aws-lambda-35d17bd9abbb">this guide</a>.</p>
-<p>After the layer is zipped, the TCL for creating the Lambda function (<code>main.tf</code>) would look something like this:</p>
+<p>After the layer is zipped, the HCL for creating the Lambda function (<code>main.tf</code>) would look something like this:</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_iam_role&#34; &#34;this&#34; {
   name               = &#34;aws-lambda-${var.name}&#34;
   assume_role_policy = data.aws_iam_policy_document.assume.json
@@ -216,24 +216,136 @@ resource &#34;aws_cloudwatch_log_group&#34; &#34;this&#34; {
   retention_in_days = 14
 }
 </code></pre></div><h2 id="api-gateway-v2">API Gateway V2</h2>
-<p>The Lambda function now exists, but we cannot trigger it by hitting and endpoint yet. Let&rsquo;s create the API Gateway and &ldquo;hook&rdquo; our Lambda into it. This requires the creation of some additional API Gateway resources, but doing so will allow additional Lambda functions to be added to separate paths on your API Gateway. Creating the Gateway, stage, integration, and route is something like this:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">api gateway code goes here
-</code></pre></div><h1 id="todo-make-note-about-the-stage-logging">TODO: make note about the stage logging</h1>
-<h2 id="domain-name-certificate--route-53">Domain Name, Certificate, &amp; Route 53</h2>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_apigatewayv2_domain_name&#34; &#34;this&#34; {
-  domain_name = &#34;${var.name}${local.unstarred_domain_name}&#34;
+<p>The Lambda function now exists, but we cannot trigger it by hitting and endpoint yet. Let&rsquo;s create the API Gateway and &ldquo;hook&rdquo; our Lambda into it. This requires the creation of some additional API Gateway resources, and doing so will allow additional Lambda functions to be added to separate paths on your API Gateway. Creating the Gateway, stage, integration, and route is something like this:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_apigatewayv2_api&#34; &#34;this&#34; {
+  name          = var.name
+  protocol_type = &#34;HTTP&#34;
 
-  domain_name_configuration {
-    certificate_arn = var.certificate_arn
-    endpoint_type   = &#34;REGIONAL&#34;
-    security_policy = &#34;TLS_1_2&#34;
+  cors_configuration {
+    allow_headers = [
+      &#34;content-type&#34;,
+    ]
+    allow_methods = [
+      &#34;POST&#34;,
+    ]
+    allow_origins = [
+      &#34;*&#34;,
+    ]
   }
 }
 
-resource &#34;aws_route53_record&#34; &#34;this&#34; {
+resource &#34;aws_apigatewayv2_stage&#34; &#34;this&#34; {
+  api_id      = aws_apigatewayv2_api.this.id
+  name        = &#34;$default&#34;
+  auto_deploy = true
+
+  access_log_settings {
+    destination_arn = aws_cloudwatch_log_group.this.arn
+    format = jsonencode(
+      {
+        httpMethod              = &#34;$context.httpMethod&#34;
+        ip                      = &#34;$context.identity.sourceIp&#34;
+        protocol                = &#34;$context.protocol&#34;
+        requestId               = &#34;$context.requestId&#34;
+        requestTime             = &#34;$context.requestTime&#34;
+        responseLength          = &#34;$context.responseLength&#34;
+        routeKey                = &#34;$context.routeKey&#34;
+        status                  = &#34;$context.status&#34;
+        integrationStatus       = &#34;$context.integration.integrationStatus&#34;
+        integrationErrorMessage = &#34;$context.integration.error&#34;
+      }
+    )
+  }
+}
+
+resource &#34;aws_apigatewayv2_integration&#34; &#34;this&#34; {
+  api_id           = aws_apigatewayv2_api.this.id
+  integration_type = &#34;AWS_PROXY&#34;
+
+  connection_type      = &#34;INTERNET&#34;
+  description          = var.description
+  integration_method   = &#34;POST&#34;
+  integration_uri      = aws_lambda_function.this.invoke_arn
+}
+
+resource &#34;aws_apigatewayv2_route&#34; &#34;this&#34; {
+  api_id    = aws_apigatewayv2_api.this.id
+  route_key = &#34;POST /{proxy+}&#34;
+
+  target = &#34;integrations/${aws_apigatewayv2_integration.this.id}&#34;
+}
+
+resource &#34;aws_lambda_permission&#34; &#34;this&#34; {
+  action        = &#34;lambda:InvokeFunction&#34;
+  function_name = aws_lambda_function.this.arn
+  principal     = &#34;apigateway.amazonaws.com&#34;
+
+  source_arn = &#34;${aws_apigatewayv2_api.this.execution_arn}/*/*&#34;
+}
+
+output &#34;api_gateway_endpoint&#34; {
+  value = aws_apigatewayv2_api.this.api_endpoint
+}
+</code></pre></div><p>At this point, it should be possible to hit the Lambda function at the correct path (<code>route_key</code> in the gateway route) at the url output as <code>api_gateway_endpoint</code>. Make sure this is reachable before moving onto any additional steps, as it will make things only more complicated as we add a custom domain and certificate to an endpoint that doesn&rsquo;t work.</p>
+<p>There are a few things to note the resources created here. First, we add <code>access_log_settings</code> to gateway stage, and the fields here correspond to what is available on the <code>$context</code> variable (more on that <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference">here</a>). This gives us a bit more logging context in the CloudWatch logroup that we create, and these logs can be quite helpful when determining if there any issues that occur between the gateway stage and the execution of the Lambda function.</p>
+<p>Second, the values for <code>integration_type</code>, <code>connection_type</code>, and <code>integration_method</code> in the gateway integration are also notable, as these would change depending on your use case.</p>
+<p>Third, the <code>route_key</code> is also important, and the way this is setup will depend on the way your API Gateway is organized. Here, I only want to create a single endpoint, but I might also want to add an additional <code>/v1/</code> or not add the <code>{proxy+}</code>, which is a way to indicate that requests at any paths past <code>/</code> will still be sent to this route. If <code>{proxy+}</code> was not added here, a request at any path past just <code>/</code> would not be routed to this path, resulting in <code>404</code>.</p>
+<p>Finally, it&rsquo;s necessary to create a Lambda permission for the API Gateway, or the Gateway will not be able to run the Lambda. I spent considerable time trying to figure this out, and when I finally added the <code>integrationErrorMessage</code> to the <code>access_log_settings</code>, I was able to determine the problem.</p>
+<h2 id="domain-name-certificate--route-53">Domain Name, Certificate, &amp; Route 53</h2>
+<p>Now we have a working API Gateway that routes a specific path url to a specific Lambda function. However, we are still stuck with the API url that AWS has generated for us. In the next section, we will be creating a Route 53 zone, certificate using AWS certificate manager, and the necessary records/permissions to be able to add a custom domain for our API Gateway.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_route53_zone&#34; &#34;this&#34; {
+  name = &#34;${var.name}.com&#34;
+}
+
+resource &#34;aws_acm_certificate&#34; &#34;this&#34; {
+  domain_name = aws_route53_zone.this.name
+  validation_method = &#34;DNS&#34;
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource &#34;aws_route53_record&#34; &#34;zone&#34; {
+  for_each = {
+    for dvo in aws_acm_certificate.this.domain_validation_options : dvo.domain_name =&gt; {
+      name   = dvo.resource_record_name
+      record = dvo.resource_record_value
+      type   = dvo.resource_record_type
+    }
+  }
+
+  allow_overwrite = true
+  name            = each.value.name
+  records         = [each.value.record]
+  ttl             = 300
+  type            = each.value.type
+  zone_id         = aws_route53_zone.this.zone_id
+}
+
+resource &#34;aws_acm_certificate_validation&#34; &#34;this&#34; {
+  certificate_arn         = aws_acm_certificate.this.arn
+  validation_record_fqdns = [for record in aws_route53_record.zone : record.fqdn]
+}
+
+resource &#34;aws_apigatewayv2_domain_name&#34; &#34;this&#34; {
+  domain_name = aws_route53_zone.this.name
+
+  domain_name_configuration {
+    certificate_arn = aws_acm_certificate.this.arn
+    endpoint_type   = &#34;REGIONAL&#34;
+    security_policy = &#34;TLS_1_2&#34;
+  }
+
+  depends_on = [
+    aws_acm_certificate_validation.this,
+  ]
+}
+
+resource &#34;aws_route53_record&#34; &#34;api_gateway_record&#34; {
   name    = aws_apigatewayv2_domain_name.this.domain_name
   type    = &#34;A&#34;
-  zone_id = var.route_53_zone_id
+  zone_id = aws_route53_zone.this.zone_id
 
   alias {
     name                   = aws_apigatewayv2_domain_name.this.domain_name_configuration[0].target_domain_name
@@ -247,8 +359,11 @@ resource &#34;aws_apigatewayv2_api_mapping&#34; &#34;this&#34; {
   domain_name = aws_apigatewayv2_domain_name.this.id
   stage       = aws_apigatewayv2_stage.this.id
 }
-
-</code></pre></div><h3 id="disable-execute-endpoint">Disable execute endpoint</h3>
+</code></pre></div><p>You can see that the Lambda function name is being used for the Route 53 zone, and also for the name of the custom domain for the API Gateway. As it was not completely obvious to me at the time, creating a Route 53 zone does not automatically also register the domain for you automatically; the domain can be purchases and registered using Route 53, or any other service that sells domains, but buying from an external service results in additional creation of DNS records on that service.</p>
+<p>Just make sure that whatever is used as the Route 53 zone name and API Gateway domain name is one you own and can create records on.</p>
+<p>At this point it should be possible to call our Lambda function at the corresponding path using the custom domain that was just added.</p>
+<h3 id="disable-execute-endpoint">Disable execute endpoint</h3>
+<p>With things in relative order, it can also be a good idea to disable the execute endpoint, as this is no longer needed. Route 53 will point to the API Gateway&rsquo;s endpoint instead, and it will still be possible to call the custom domain endpoint without the execute API endpoint enabled. Just remember to also remove any references to the execute API endpoint, such as the output that was included earlier in the post.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">resource &#34;aws_apigatewayv2_api&#34; &#34;this&#34; {
   name                         = var.name
   protocol_type                = &#34;HTTP&#34;
@@ -266,6 +381,7 @@ resource &#34;aws_apigatewayv2_api_mapping&#34; &#34;this&#34; {
 }
 </code></pre></div><h2 id="summary">Summary</h2>
 <p>At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it&rsquo;s only a <code>POST</code> method as of now, and if you read up on the <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html">AWS API Gateway documentation</a>, you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers.</p>
+<p>And once again, here&rsquo;s the <a href="https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo">link</a> to the repo with the example code.</p>
 
       </div>
 
