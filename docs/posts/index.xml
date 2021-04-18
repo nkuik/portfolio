@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 18 Apr 2021 12:00:00 +0100</lastBuildDate><atom:link href="https://nathankuik.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Terraform Custom Domained Lambda Function Behind V2 API Gateway</title>
+      <title>Terraformed AWS API Gateway Lambda Function with Custom Domain</title>
       <link>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</link>
       <pubDate>Sun, 18 Apr 2021 12:00:00 +0100</pubDate>
       
       <guid>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</guid>
-      <description>API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific parts of this setup out there on the interwebs, I didn&amp;rsquo;t find an end-to-end solution that just worked &amp;ldquo;out of the box.</description>
+      <description>API Gateway V1 (REST) vs. V2 (Websocket and HTTP) I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific pieces of this setup out there on the interwebs, I didn&amp;rsquo;t find an end-to-end solution that just worked &amp;ldquo;out of the box.</description>
     </item>
     
     <item>
