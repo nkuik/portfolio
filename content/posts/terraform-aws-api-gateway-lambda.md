@@ -1,5 +1,5 @@
 ---
-title: "Terraform Custom Domained Lambda Function Behind V2 API Gateway"
+title: "Terraformed AWS API Gateway Lambda Function with Custom Domain"
 date: 2021-04-18T12:00:00+01:00
 draft: false
 ---
