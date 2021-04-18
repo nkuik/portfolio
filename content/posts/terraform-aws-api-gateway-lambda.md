@@ -279,4 +279,4 @@ resource "aws_apigatewayv2_api" "this" {
 
 At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it's only a `POST` method as of now, and if you read up on the [AWS API Gateway documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html), you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers. 
 
-And once again, here's the [link](https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo) to the repo with the example code.
+And once again, here's the [link](https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo) to the repo with the example code. Keep in mind that the code included there doesn't really take into consideration multiple routes with multiple Lambdas. Examples of such modules can be found relatively easily through a web search.
