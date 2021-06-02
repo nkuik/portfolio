@@ -6,7 +6,17 @@
     <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 12:00:00 +0100</lastBuildDate><atom:link href="https://nathankuik.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Jun 2021 08:00:00 +0100</lastBuildDate><atom:link href="https://nathankuik.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automated Mobile iOS &amp; Android Builds using Fastlane and CircleCI</title>
+      <link>https://nathankuik.com/posts/automating-mobile-app-builds-releases/</link>
+      <pubDate>Wed, 02 Jun 2021 08:00:00 +0100</pubDate>
+      
+      <guid>https://nathankuik.com/posts/automating-mobile-app-builds-releases/</guid>
+      <description>Automated App Builds &amp;amp; Releases I was recently tasked with automating the iOS and Android build and releases at my work last month. We had some compliance checks coming up, and instead of making 2+ dev machines a part of the audit process, the decision was made to fully automate the build and release process.
+After doing some initial digging, I realized that there was a bit more to it than I had first thought, primarily due to the fact that the current process involved a designated individual from each team doing a manual clean build and upload, using shared certificates and keys.</description>
+    </item>
+    
     <item>
       <title>Terraformed AWS API Gateway Lambda Function with Custom Domain</title>
       <link>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</link>
