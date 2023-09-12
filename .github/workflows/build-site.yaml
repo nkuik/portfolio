@@ -23,7 +23,7 @@ jobs:
         target: docs
 
     - name: run lighthouse ci 
-      uses: treosh/lighthouse-ci-action@9.6.8
+      uses: treosh/lighthouse-ci-action@10.1.0
       with:
         configPath: "./lighthouserc.json"
         temporaryPublicStorage: true
