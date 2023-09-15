@@ -10,30 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
-    - name: checkout submodules
-      run: git submodule update --init --recursive
+      - name: checkout submodules
+        run: git submodule update --init --recursive
 
-    - name: build site
-      uses: klakegg/actions-hugo@1.0.0
-      with:
-        target: docs
+      - name: setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.117.0"
+          extended: true
 
-    - name: run lighthouse ci 
-      uses: treosh/lighthouse-ci-action@10.1.0
-      with:
-        configPath: "./lighthouserc.json"
-        temporaryPublicStorage: true
-        uploadArtifacts: true
+      - name: build
+        run: hugo --minify
 
-    - name: push changes
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: run lighthouse ci
+        uses: treosh/lighthouse-ci-action@10.1.0
+        with:
+          configPath: "./lighthouserc.json"
+          temporaryPublicStorage: true
+          uploadArtifacts: true
 
-        git add .
-        git commit -m "Build site for $GITHUB_HEAD_REF" || true
-        git push -f origin $GITHUB_HEAD_REF || true
+      - name: push changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .
+          git commit -m "Build site for $GITHUB_HEAD_REF" || true
+          git push -f origin $GITHUB_HEAD_REF || true
