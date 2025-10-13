@@ -15,6 +15,8 @@ tags:
 categories: ["devops", "genai", "software development", "conference"]
 ---
 
+![GOTO Copenhagen Conference Hall](goto-cph.png)
+
 I was given the opportunity to attend the GOTO Copenhagen conference from October 1 to 3. Overall, I found the content and sentiment of the conference relevant to what's happening "out there" in the industry.
 
 Thus, I wanted to take some time to summarize my learnings and observations from those three days.

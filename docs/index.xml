@@ -1,52 +1,82 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home</title><link>https://nathankuik.com/</link><description>Recent content on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 13 Oct 2025 10:00:00 +0200</lastBuildDate><atom:link href="https://nathankuik.com/index.xml" rel="self" type="application/rss+xml"/><item><title>GOTO Copenhagen 2025</title><link>https://nathankuik.com/posts/goto-cph-2025/</link><pubDate>Mon, 13 Oct 2025 10:00:00 +0200</pubDate><guid>https://nathankuik.com/posts/goto-cph-2025/</guid><description>&lt;p&gt;I was given the opportunity to attend the GOTO Copenhagen conference from October 1 to 3. Overall, I found the content and sentiment of the conference relevant to what&amp;rsquo;s happening &amp;ldquo;out there&amp;rdquo; in the industry.&lt;/p&gt;
-&lt;p&gt;Thus, I wanted to take some time to summarize my learnings and observations from those three days.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id="the-genie-in-the-room"&gt;
- The “Genie” in the Room
- &lt;a class="heading-link" href="#the-genie-in-the-room"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;&amp;ldquo;AI this, GenAI that, blah, blah, blah.&amp;rdquo; We&amp;rsquo;ve all heard it and now block it out. I generally accept that GenAI, LLMs, and the like are here to stay (though I can&amp;rsquo;t say I&amp;rsquo;m thrilled about it), but the hype train is real and unavoidable.&lt;/p&gt;</description></item><item><title>Automated Mobile iOS &amp; Android Builds using Fastlane and CircleCI</title><link>https://nathankuik.com/posts/automating-mobile-app-builds-releases/</link><pubDate>Wed, 02 Jun 2021 08:00:00 +0100</pubDate><guid>https://nathankuik.com/posts/automating-mobile-app-builds-releases/</guid><description>&lt;p&gt;I was recently tasked with automating the iOS and Android build and releases at
-my work last month. We had some compliance checks coming up, and instead of
-making 2+ dev machines a part of the audit process, the decision was made to
-fully automate the build and release process.&lt;/p&gt;
-&lt;p&gt;After doing some initial digging, I realized that there was a bit more to it
-than I had first thought, primarily due to the fact that the current process
-involved a designated individual from each team doing a manual clean build and
-upload, using shared certificates and keys. While it was theoretically possible
-that the compliance check could audit the existing process (e.g., dev machines),
-it would be less than ideal.&lt;/p&gt;</description></item><item><title>Terraformed AWS API Gateway Lambda Function with Custom Domain</title><link>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</link><pubDate>Sun, 18 Apr 2021 12:00:00 +0100</pubDate><guid>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</guid><description>&lt;h2 id="api-gateway-v1-rest-vs-v2-websocket-and-http"&gt;
- API Gateway V1 (REST) vs. V2 (Websocket and HTTP)
- &lt;a class="heading-link" href="#api-gateway-v1-rest-vs-v2-websocket-and-http"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific pieces of this setup out there on the interwebs, I didn&amp;rsquo;t find an end-to-end solution that just worked &amp;ldquo;out of the box.&amp;rdquo; This post shows how to create the following using Terraform:&lt;/p&gt;</description></item><item><title>The Kubernetes Threshold</title><link>https://nathankuik.com/posts/kubernetes-threshold/</link><pubDate>Fri, 15 Jan 2021 08:00:00 +0100</pubDate><guid>https://nathankuik.com/posts/kubernetes-threshold/</guid><description>&lt;h2 id="a-single-server"&gt;
- A Single Server
- &lt;a class="heading-link" href="#a-single-server"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;Let’s imagine a small server running an application out in the wild. The
-application is small&amp;ndash;it requires only a backend server, a database, and some
-static frontend code&amp;ndash;but despite its size, the traffic on this server has been
-increasing in the last few weeks.&lt;/p&gt;
-&lt;p&gt;As the traffic continues to grow, response times grow slower and users begin
-complaining about the application’s slowness. Thankful that the application is
-seeing increased traffic, the main developer of the application uses a late
-night to increase CPU and memory on the server (a vertical scale), which
-succeeds without issue.&lt;/p&gt;</description></item><item><title>Fighting Burnout, Burnout Series Pt. 2</title><link>https://nathankuik.com/posts/fighting-burnout/</link><pubDate>Tue, 13 Aug 2019 19:15:43 +0200</pubDate><guid>https://nathankuik.com/posts/fighting-burnout/</guid><description>&lt;p&gt;The second part of in my series on burnout: &lt;a href="https://dev.to/nkuik/fighting-burnout-30ff" class="external-link" target="_blank" rel="noopener"&gt;Fighting Burnout&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>What Actually is Burnout, Burnout Series Pt. 1</title><link>https://nathankuik.com/posts/what-actually-is-burnout/</link><pubDate>Wed, 06 Feb 2019 19:15:43 +0200</pubDate><guid>https://nathankuik.com/posts/what-actually-is-burnout/</guid><description>&lt;p&gt;I&amp;rsquo;ve begun a series on burnout and what we can do about. The first part of the series can be found &lt;a href="https://dev.to/nkuik/what-actually-is-burnout-14d2" class="external-link" target="_blank" rel="noopener"&gt;here&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Depression and Flow</title><link>https://nathankuik.com/talks/depression-and-flow/</link><pubDate>Sat, 23 Jun 2018 15:10:37 +0200</pubDate><guid>https://nathankuik.com/talks/depression-and-flow/</guid><description>&lt;p&gt;On June 16, I was fortunate enough to give my first conference workshop,
-entitled &lt;a href="https://2018.europe.wordcamp.org/session/going-with-the-flow-increasing-mindfulness-and-flow-experiences-to-fight-burnout-and-depression/" class="external-link" target="_blank" rel="noopener"&gt;&amp;ldquo;Going with the Flow: Increasing Mindfulness and Flow Experiences to Fight Burnout and Depression&amp;rdquo;&lt;/a&gt; at &lt;a href="https://2018.europe.wordcamp.org/" class="external-link" target="_blank" rel="noopener"&gt;Wordcamp Europe&lt;/a&gt;. I gave the workshop in partnership with &lt;a href="https://2018.europe.wordcamp.org/" class="external-link" target="_blank" rel="noopener"&gt;Open Sourcing Mental Illness&lt;/a&gt;, a non-profit working to raise awareness of mental health issues in the tech industry.&lt;/p&gt;
-&lt;p&gt;I &lt;a href="https://github.com/nkuik/flow-resources" class="external-link" target="_blank" rel="noopener"&gt;created a repo&lt;/a&gt; with summarized information and resources, and I&amp;rsquo;ll be sure to post a video when it becomes available.&lt;/p&gt;</description></item><item><title>My Mandatory Junior Web Dev Post</title><link>https://nathankuik.com/posts/my-mandatory-junior-web-dev-post/</link><pubDate>Sun, 10 Jun 2018 17:11:40 +0200</pubDate><guid>https://nathankuik.com/posts/my-mandatory-junior-web-dev-post/</guid><description>&lt;p&gt;My post about starting out in the world as a junior dev is on Medium &lt;a href="https://medium.com/@nathan.kuik/my-mandatory-junior-web-developer-post-7880f296f7d0" class="external-link" target="_blank" rel="noopener"&gt;here&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Danish Harm Reduction</title><link>https://nathankuik.com/posts/danish-harm-reduction/</link><pubDate>Fri, 03 Jun 2016 19:15:43 +0200</pubDate><guid>https://nathankuik.com/posts/danish-harm-reduction/</guid><description>&lt;p&gt;I wrote an article highlighting the effectiveness of &lt;a href="https://www.hri.global/what-is-harm-reduction" class="external-link" target="_blank" rel="noopener"&gt;harm reduction&lt;/a&gt; for the substance use and mental health blog The Fix, and it can be found &lt;a href="https://www.thefix.com/denmark-harm-reduction-approach-addiction-working" class="external-link" target="_blank" rel="noopener"&gt;here&lt;/a&gt;.&lt;/p&gt;</description></item><item><title/><link>https://nathankuik.com/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://nathankuik.com/about/</guid><description>&lt;h1 id="about"&gt;
- About
- &lt;a class="heading-link" href="#about"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h1&gt;
-&lt;p&gt;Hi. My name is Nathan, and I live in Copenhagen, and I currently work at The LEGO Group as a senior engineer.&lt;/p&gt;
-&lt;p&gt;I use this site to collect some of my thoughts about a number of topics in the &lt;a href="https://nathankuik.com/posts/" &gt;blog&lt;/a&gt;. I&amp;rsquo;m also happy to accept any kind of request or introduction via &lt;a href="mailto:nathan@nathankuik.com" &gt;email&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Home</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Oct 2025 10:00:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GOTO Copenhagen 2025</title>
+      <link>http://localhost:1313/posts/goto-cph-2025/</link>
+      <pubDate>Mon, 13 Oct 2025 10:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/posts/goto-cph-2025/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;goto-cph.png&#34; alt=&#34;GOTO Copenhagen Conference Hall&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I was given the opportunity to attend the GOTO Copenhagen conference from October 1 to 3. Overall, I found the content and sentiment of the conference relevant to what&amp;rsquo;s happening &amp;ldquo;out there&amp;rdquo; in the industry.&lt;/p&gt;&#xA;&lt;p&gt;Thus, I wanted to take some time to summarize my learnings and observations from those three days.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-genie-in-the-room&#34;&gt;&#xA;  The “Genie” in the Room&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-genie-in-the-room&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&amp;ldquo;AI this, GenAI that, blah, blah, blah.&amp;rdquo; We&amp;rsquo;ve all heard it and now block it out. I generally accept that GenAI, LLMs, and the like are here to stay (though I can&amp;rsquo;t say I&amp;rsquo;m thrilled about it), but the hype train is real and unavoidable.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Automated Mobile iOS &amp; Android Builds using Fastlane and CircleCI</title>
+      <link>http://localhost:1313/posts/automating-mobile-app-builds-releases/</link>
+      <pubDate>Wed, 02 Jun 2021 08:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/automating-mobile-app-builds-releases/</guid>
+      <description>&lt;p&gt;I was recently tasked with automating the iOS and Android build and releases at&#xA;my work last month. We had some compliance checks coming up, and instead of&#xA;making 2+ dev machines a part of the audit process, the decision was made to&#xA;fully automate the build and release process.&lt;/p&gt;&#xA;&lt;p&gt;After doing some initial digging, I realized that there was a bit more to it&#xA;than I had first thought, primarily due to the fact that the current process&#xA;involved a designated individual from each team doing a manual clean build and&#xA;upload, using shared certificates and keys. While it was theoretically possible&#xA;that the compliance check could audit the existing process (e.g., dev machines),&#xA;it would be less than ideal.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraformed AWS API Gateway Lambda Function with Custom Domain</title>
+      <link>http://localhost:1313/posts/terraform-aws-api-gateway-lambda/</link>
+      <pubDate>Sun, 18 Apr 2021 12:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/terraform-aws-api-gateway-lambda/</guid>
+      <description>&lt;h2 id=&#34;api-gateway-v1-rest-vs-v2-websocket-and-http&#34;&gt;&#xA;  API Gateway V1 (REST) vs. V2 (Websocket and HTTP)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#api-gateway-v1-rest-vs-v2-websocket-and-http&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific pieces of this setup out there on the interwebs, I didn&amp;rsquo;t find an end-to-end solution that just worked &amp;ldquo;out of the box.&amp;rdquo; This post shows how to create the following using Terraform:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Kubernetes Threshold</title>
+      <link>http://localhost:1313/posts/kubernetes-threshold/</link>
+      <pubDate>Fri, 15 Jan 2021 08:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-threshold/</guid>
+      <description>&lt;h2 id=&#34;a-single-server&#34;&gt;&#xA;  A Single Server&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#a-single-server&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Let’s imagine a small server running an application out in the wild. The&#xA;application is small&amp;ndash;it requires only a backend server, a database, and some&#xA;static frontend code&amp;ndash;but despite its size, the traffic on this server has been&#xA;increasing in the last few weeks.&lt;/p&gt;&#xA;&lt;p&gt;As the traffic continues to grow, response times grow slower and users begin&#xA;complaining about the application’s slowness. Thankful that the application is&#xA;seeing increased traffic, the main developer of the application uses a late&#xA;night to increase CPU and memory on the server (a vertical scale), which&#xA;succeeds without issue.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fighting Burnout, Burnout Series Pt. 2</title>
+      <link>http://localhost:1313/posts/fighting-burnout/</link>
+      <pubDate>Tue, 13 Aug 2019 19:15:43 +0200</pubDate>
+      <guid>http://localhost:1313/posts/fighting-burnout/</guid>
+      <description>&lt;p&gt;The second part of in my series on burnout: &lt;a href=&#34;https://dev.to/nkuik/fighting-burnout-30ff&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fighting Burnout&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What Actually is Burnout, Burnout Series Pt. 1</title>
+      <link>http://localhost:1313/posts/what-actually-is-burnout/</link>
+      <pubDate>Wed, 06 Feb 2019 19:15:43 +0200</pubDate>
+      <guid>http://localhost:1313/posts/what-actually-is-burnout/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve begun a series on burnout and what we can do about. The first part of the series can be found &lt;a href=&#34;https://dev.to/nkuik/what-actually-is-burnout-14d2&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Depression and Flow</title>
+      <link>http://localhost:1313/talks/depression-and-flow/</link>
+      <pubDate>Sat, 23 Jun 2018 15:10:37 +0200</pubDate>
+      <guid>http://localhost:1313/talks/depression-and-flow/</guid>
+      <description>&lt;p&gt;On June 16, I was fortunate enough to give my first conference workshop,&#xA;entitled &lt;a href=&#34;https://2018.europe.wordcamp.org/session/going-with-the-flow-increasing-mindfulness-and-flow-experiences-to-fight-burnout-and-depression/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Going with the Flow: Increasing Mindfulness and Flow Experiences to Fight Burnout and Depression&amp;rdquo;&lt;/a&gt; at &lt;a href=&#34;https://2018.europe.wordcamp.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wordcamp Europe&lt;/a&gt;. I gave the workshop in partnership with &lt;a href=&#34;https://2018.europe.wordcamp.org/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Open Sourcing Mental Illness&lt;/a&gt;, a non-profit working to raise awareness of mental health issues in the tech industry.&lt;/p&gt;&#xA;&lt;p&gt;I &lt;a href=&#34;https://github.com/nkuik/flow-resources&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;created a repo&lt;/a&gt; with summarized information and resources, and I&amp;rsquo;ll be sure to post a video when it becomes available.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My Mandatory Junior Web Dev Post</title>
+      <link>http://localhost:1313/posts/my-mandatory-junior-web-dev-post/</link>
+      <pubDate>Sun, 10 Jun 2018 17:11:40 +0200</pubDate>
+      <guid>http://localhost:1313/posts/my-mandatory-junior-web-dev-post/</guid>
+      <description>&lt;p&gt;My post about starting out in the world as a junior dev is on Medium &lt;a href=&#34;https://medium.com/@nathan.kuik/my-mandatory-junior-web-developer-post-7880f296f7d0&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Danish Harm Reduction</title>
+      <link>http://localhost:1313/posts/danish-harm-reduction/</link>
+      <pubDate>Fri, 03 Jun 2016 19:15:43 +0200</pubDate>
+      <guid>http://localhost:1313/posts/danish-harm-reduction/</guid>
+      <description>&lt;p&gt;I wrote an article highlighting the effectiveness of &lt;a href=&#34;https://www.hri.global/what-is-harm-reduction&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;harm reduction&lt;/a&gt; for the substance use and mental health blog The Fix, and it can be found &lt;a href=&#34;https://www.thefix.com/denmark-harm-reduction-approach-addiction-working&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h1 id=&#34;about&#34;&gt;&#xA;  About&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#about&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Hi. My name is Nathan, and I live in Copenhagen, and I currently work at The LEGO Group as a senior engineer.&lt;/p&gt;&#xA;&lt;p&gt;I use this site to collect some of my thoughts about a number of topics in the &lt;a href=&#34;http://localhost:1313/posts/&#34; &gt;blog&lt;/a&gt;. I&amp;rsquo;m also happy to accept any kind of request or introduction via &lt;a href=&#34;mailto:nathan@nathankuik.com&#34; &gt;email&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
