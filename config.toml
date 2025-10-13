@@ -5,71 +5,70 @@ theme = "hugo-coder"
 
 publishDir = "docs"
 
-paginate = 20
 canonifyurls = true
+
+[pagination]
+pagerSize = 20
 
 pygmentsstyle = "b2"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
 [params]
-    author = "Nathan Kuik"
-    description = "Nathan Kuik's personal website"
-    keywords = "blog,developer,personal"
-    info = "Software Developer"
+author = "Nathan Kuik"
+description = "Nathan Kuik's personal website"
+keywords = "blog,developer,personal"
+info = "Software Developer"
+copyright = "2025"
 
-    hideCredits = false
-    hideCopyright = false
-    colorscheme = "auto"
+hideCredits = false
+hideCopyright = false
+colorscheme = "auto"
 
 [params.cloudflare]
-    token = "f32f4e211b3a405cadd13585a2bb4310"
+token = "f32f4e211b3a405cadd13585a2bb4310"
 
 [[params.social]]
-    name = "Github"
-    weight = 1
-    url = "https://github.com/nkuik/"
+name = "Github"
+weight = 1
+url = "https://github.com/nkuik/"
 [[params.social]]
-    name = "LinkedIn"
-    weight = 2
-    url = "https://www.linkedin.com/in/nathankuik/"
+name = "LinkedIn"
+weight = 2
+url = "https://www.linkedin.com/in/nathankuik/"
 [[params.social]]
-    name = "Email"
-    weight = 3
-    url = "mailto:nathan@nathankuik.com"
+name = "Email"
+weight = 3
+url = "mailto:me@nathankuik.com"
 
 [[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/posts/"
+name = "Blog"
+weight = 1
+url = "/posts/"
 [[menu.main]]
-    name = "Talks"
-    weight = 2
-    url = "/talks/"
+name = "Talks"
+weight = 2
+url = "/talks/"
 [[menu.main]]
-    name = "About"
-    weight = 3
-    url = "/about/"
+name = "About"
+weight = 3
+url = "/about/"
 
 [privacy]
-  [privacy.disqus]
-    disable = true
-  [privacy.googleAnalytics]
-    anonymizeIP = true
-    disable = true
-    respectDoNotTrack = true
-    useSessionStorage = true
-  [privacy.instagram]
-    disable = true
-    simple = true
-  [privacy.twitter]
-    disable = true
-    enableDNT = true
-    simple = true
-  [privacy.vimeo]
-    disable = true
-    enableDNT = true
-    simple = true
-  [privacy.youtube]
-    disable = true
-    privacyEnhanced = true
+[privacy.disqus]
+disable = true
+[privacy.googleAnalytics]
+anonymizeIP = true
+disable = true
+respectDoNotTrack = true
+useSessionStorage = true
+[privacy.instagram]
+disable = true
+simple = true
+[privacy.vimeo]
+disable = true
+enableDNT = true
+simple = true
+[privacy.youtube]
+disable = true
+privacyEnhanced = true

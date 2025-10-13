@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Aws on Home</title><link>https://nathankuik.com/categories/aws/</link><description>Recent content in Aws on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 18 Apr 2021 12:00:00 +0100</lastBuildDate><atom:link href="https://nathankuik.com/categories/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>Terraformed AWS API Gateway Lambda Function with Custom Domain</title><link>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</link><pubDate>Sun, 18 Apr 2021 12:00:00 +0100</pubDate><guid>https://nathankuik.com/posts/terraform-aws-api-gateway-lambda/</guid><description>&lt;h2 id="api-gateway-v1-rest-vs-v2-websocket-and-http"&gt;
+ API Gateway V1 (REST) vs. V2 (Websocket and HTTP)
+ &lt;a class="heading-link" href="#api-gateway-v1-rest-vs-v2-websocket-and-http"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific pieces of this setup out there on the interwebs, I didn&amp;rsquo;t find an end-to-end solution that just worked &amp;ldquo;out of the box.&amp;rdquo; This post shows how to create the following using Terraform:&lt;/p&gt;</description></item></channel></rss>

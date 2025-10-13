@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Infrastructure on Home</title><link>https://nathankuik.com/tags/infrastructure/</link><description>Recent content in Infrastructure on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 15 Jan 2021 08:00:00 +0100</lastBuildDate><atom:link href="https://nathankuik.com/tags/infrastructure/index.xml" rel="self" type="application/rss+xml"/><item><title>The Kubernetes Threshold</title><link>https://nathankuik.com/posts/kubernetes-threshold/</link><pubDate>Fri, 15 Jan 2021 08:00:00 +0100</pubDate><guid>https://nathankuik.com/posts/kubernetes-threshold/</guid><description>&lt;h2 id="a-single-server"&gt;
+ A Single Server
+ &lt;a class="heading-link" href="#a-single-server"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Let’s imagine a small server running an application out in the wild. The
+application is small&amp;ndash;it requires only a backend server, a database, and some
+static frontend code&amp;ndash;but despite its size, the traffic on this server has been
+increasing in the last few weeks.&lt;/p&gt;
+&lt;p&gt;As the traffic continues to grow, response times grow slower and users begin
+complaining about the application’s slowness. Thankful that the application is
+seeing increased traffic, the main developer of the application uses a late
+night to increase CPU and memory on the server (a vertical scale), which
+succeeds without issue.&lt;/p&gt;</description></item></channel></rss>
