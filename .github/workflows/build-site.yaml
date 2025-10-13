@@ -27,7 +27,7 @@ jobs:
         run: hugo --minify
 
       - name: run lighthouse ci
-        uses: treosh/lighthouse-ci-action@11.4.0
+        uses: treosh/lighthouse-ci-action@12.6.1
         with:
           configPath: "./lighthouserc.json"
           temporaryPublicStorage: true
