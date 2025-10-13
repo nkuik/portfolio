@@ -2,15 +2,17 @@
 title: "Terraformed AWS API Gateway Lambda Function with Custom Domain"
 date: 2021-04-18T12:00:00+01:00
 draft: false
+tags: ["aws", "terraform", "lambda", "api gateway"]
+categories: ["aws", "terraform", "cloud", "devops"]
 ---
 
 ## API Gateway V1 (REST) vs. V2 (Websocket and HTTP)
 
 I was setting up a Lambda Function that sat behind a specific route of an API Gateway the other day at work, instead of setting up a microservice on a Kubernetes cluster and dealing with the ingress/deployment setup. While I was able to find specific pieces of this setup out there on the interwebs, I didn't find an end-to-end solution that just worked "out of the box." This post shows how to create the following using Terraform:
 
-* V2 HTTP API Gateway
-* Gateway stage, route, and integration that point to a Lambda Function
-* Adding a custom domain using Amazon Certificate Manager and Route 53
+- V2 HTTP API Gateway
+- Gateway stage, route, and integration that point to a Lambda Function
+- Adding a custom domain using Amazon Certificate Manager and Route 53
 
 It is important to note that API Gateway has two versions, with V1 allowing a REST API and V2 allowing HTTP and Websocket. In looking over the resources I would need to create and the considerations of my API, I decided that HTTP would be enough and that the V2 Gateway setup was more straightforward. You can read more about the difference between the HTTP and REST API Gateways [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html) and a brief overview of the additional features introduced in API Gateway V2 can be found [here](https://www.serverless.com/blog/api-gateway-v2-http-apis).
 
@@ -176,7 +178,7 @@ Finally, it's necessary to create a Lambda permission for the API Gateway, or th
 
 ## Domain Name, Certificate, & Route 53
 
-Now we have a working API Gateway that routes a specific path url to a specific Lambda function. However, we are still stuck with the API url that AWS has generated for us. In the next section, we will be creating a Route 53 zone, certificate using AWS certificate manager, and the necessary records/permissions to be able to add a custom domain for our API Gateway. 
+Now we have a working API Gateway that routes a specific path url to a specific Lambda function. However, we are still stuck with the API url that AWS has generated for us. In the next section, we will be creating a Route 53 zone, certificate using AWS certificate manager, and the necessary records/permissions to be able to add a custom domain for our API Gateway.
 
 ```
 resource "aws_route53_zone" "this" {
@@ -277,6 +279,6 @@ resource "aws_apigatewayv2_api" "this" {
 
 ## Summary
 
-At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it's only a `POST` method as of now, and if you read up on the [AWS API Gateway documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html), you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers. 
+At this point, it should be possible to hit your Lambda function at the domain name of your Route 53 zone using SSL. You can see that it's only a `POST` method as of now, and if you read up on the [AWS API Gateway documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html), you can read about all the additional features that can be utilized, such as route responses, integration responses, and authorizers.
 
 And once again, here's the [link](https://github.com/nkuik/terraform-aws-api-gateway-lambda-demo) to the repo with the example code. Keep in mind that the code included there doesn't really take into consideration multiple routes with multiple Lambdas. Examples of such modules can be found relatively easily through a web search.

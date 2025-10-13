@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on Home</title>
+    <link>http://localhost:1313/tags/infrastructure/</link>
+    <description>Recent content in Infrastructure on Home</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Jan 2021 08:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Kubernetes Threshold</title>
+      <link>http://localhost:1313/posts/kubernetes-threshold/</link>
+      <pubDate>Fri, 15 Jan 2021 08:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-threshold/</guid>
+      <description>&lt;h2 id=&#34;a-single-server&#34;&gt;&#xA;  A Single Server&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#a-single-server&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Let’s imagine a small server running an application out in the wild. The&#xA;application is small&amp;ndash;it requires only a backend server, a database, and some&#xA;static frontend code&amp;ndash;but despite its size, the traffic on this server has been&#xA;increasing in the last few weeks.&lt;/p&gt;&#xA;&lt;p&gt;As the traffic continues to grow, response times grow slower and users begin&#xA;complaining about the application’s slowness. Thankful that the application is&#xA;seeing increased traffic, the main developer of the application uses a late&#xA;night to increase CPU and memory on the server (a vertical scale), which&#xA;succeeds without issue.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

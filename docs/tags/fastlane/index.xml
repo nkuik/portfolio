@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fastlane on Home</title>
+    <link>http://localhost:1313/tags/fastlane/</link>
+    <description>Recent content in Fastlane on Home</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Jun 2021 08:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fastlane/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automated Mobile iOS &amp; Android Builds using Fastlane and CircleCI</title>
+      <link>http://localhost:1313/posts/automating-mobile-app-builds-releases/</link>
+      <pubDate>Wed, 02 Jun 2021 08:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/posts/automating-mobile-app-builds-releases/</guid>
+      <description>&lt;p&gt;I was recently tasked with automating the iOS and Android build and releases at&#xA;my work last month. We had some compliance checks coming up, and instead of&#xA;making 2+ dev machines a part of the audit process, the decision was made to&#xA;fully automate the build and release process.&lt;/p&gt;&#xA;&lt;p&gt;After doing some initial digging, I realized that there was a bit more to it&#xA;than I had first thought, primarily due to the fact that the current process&#xA;involved a designated individual from each team doing a manual clean build and&#xA;upload, using shared certificates and keys. While it was theoretically possible&#xA;that the compliance check could audit the existing process (e.g., dev machines),&#xA;it would be less than ideal.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

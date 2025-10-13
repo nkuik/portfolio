@@ -2,6 +2,8 @@
 title: "The Kubernetes Threshold"
 date: 2021-01-15T08:00:00+01:00
 draft: false
+tags: ["kubernetes", "cloud", "devops", "infrastructure", "containers"]
+categories: ["kubernetes", "cloud"]
 ---
 
 ## A Single Server
@@ -52,16 +54,16 @@ in mind.
 Deploying production-grade applications is a daunting task, and it requires
 planning for (at least) the following:
 
-* Networking (DNS, IP, certificates, load-balancing, etc.)
-* Compute (the “server”)
-* Scaling (vertical & horizontal)
-* Persistence, Queues, & Key-Value Store
-* Roles & Policies (who can do what?)
-* Application Configuration & Secrets
-* Logging, Alerting, & Health Checking
-* Packaging, Bundling, Dependencies & Artifacts
-* Deployments
-* Other aspects I forgot to include...
+- Networking (DNS, IP, certificates, load-balancing, etc.)
+- Compute (the “server”)
+- Scaling (vertical & horizontal)
+- Persistence, Queues, & Key-Value Store
+- Roles & Policies (who can do what?)
+- Application Configuration & Secrets
+- Logging, Alerting, & Health Checking
+- Packaging, Bundling, Dependencies & Artifacts
+- Deployments
+- Other aspects I forgot to include...
 
 At the end of the day, the items in the list above are production
 non-negotiables. If the non-negotiables aren’t implemented or implemented

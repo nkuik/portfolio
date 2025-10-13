@@ -2,9 +2,9 @@
 title: "Automated Mobile iOS & Android Builds using Fastlane and CircleCI"
 date: 2021-06-02T08:00:00+01:00
 draft: false
+tags: ["mobile", "ci/cd", "fastlane", "circleci", "ios", "android"]
+categories: ["mobile", "ci/cd", "devops", "cloud"]
 ---
-
-# Automated App Builds & Releases
 
 I was recently tasked with automating the iOS and Android build and releases at
 my work last month. We had some compliance checks coming up, and instead of
@@ -20,14 +20,14 @@ it would be less than ideal.
 
 Developing the pipelines would require:
 
-* Running builds on linux (Android) and macOS (iOS) machines
-* Handling of app signing keys/certificates so developers could not create a
+- Running builds on linux (Android) and macOS (iOS) machines
+- Handling of app signing keys/certificates so developers could not create a
   production build on their machines
-* Considering how gradle (Android) and Cocoapod (iOS) dependencies would be
+- Considering how gradle (Android) and Cocoapod (iOS) dependencies would be
   handled
-* Uploading app build artifacts to Google Play Store (Android), Firebase App
+- Uploading app build artifacts to Google Play Store (Android), Firebase App
   Distribution (Android), and TestFlight (iOS)
-* Allowing branch-dependent flows that meet each teams testing and distribution
+- Allowing branch-dependent flows that meet each teams testing and distribution
   needs
 
 After spending some time considering these requirements for both the iOS and
@@ -36,11 +36,11 @@ Android build/release processes, I wanted the following to be true:
 1. Each app's build/release would not be comprised of a long bash script
 2. As identical build processes between apps as possible
 3. No unencrypted signing keys/certificates in the repo or lying around on the
-  devs' machines
+   devs' machines
 4. Minimal manual management (creation, renewal, revocation) of signing
    keys/certificates
 5. Making new production releases would still be possible while I was automating
-  the process
+   the process
 6. Both iOS and Android builds/releases would run in the "same place"
 7. No managing our own Mac instance _somewhere_ (**No Mac Minis in a random
    maintenance room!**)
@@ -71,8 +71,8 @@ I decided that using fastlane for automating builds and releases would help me
 check off, or at least would get me closer to checking off, the following from
 my requirement list:
 
-1. [X] Each app's build/release would not be comprised of a long bash script
-2. [X] As similar build processes between apps as possible
+1. [x] Each app's build/release would not be comprised of a long bash script
+2. [x] As similar build processes between apps as possible
 
 ## App Signing
 
@@ -121,11 +121,11 @@ We needed to enroll our app into Play App Signing, but after we did this and
 started using match to manage the iOS app's certs, I could check some remaining
 requirements:
 
-3. [X] No unencrypted signing keys/certificates in the repo or lying around on
-  the devs' machines
-4. [X] Minimal manual management of signing keys/certificates
-5. [X] It would still be possible to make a new production release while I was
-  automating the process
+3. [x] No unencrypted signing keys/certificates in the repo or lying around on
+       the devs' machines
+4. [x] Minimal manual management of signing keys/certificates
+5. [x] It would still be possible to make a new production release while I was
+       automating the process
 
 ## CircleCI
 
@@ -149,9 +149,9 @@ apps, I still feel good about choosing CircleCI.
 
 In addition, it helped me cross off the final requirements from my list:
 
-6. [X] Both iOS and Android builds/releases would run in the "same place"
-7. [X] No managing our own Mac instance _somewhere_ (**No Mac Minis in a random
-   maintenance room!**)
+6. [x] Both iOS and Android builds/releases would run in the "same place"
+7. [x] No managing our own Mac instance _somewhere_ (**No Mac Minis in a random
+       maintenance room!**)
 
 All in all, the process was fun to automate, and it was a good experience using
 relatively mature tools to complete the job. The most challenging parts were
