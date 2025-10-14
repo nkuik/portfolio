@@ -10,10 +10,6 @@ canonifyurls = true
 [pagination]
 pagerSize = 20
 
-pygmentsstyle = "b2"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
 [params]
 author = "Nathan Kuik"
 description = "Nathan Kuik's personal website"
