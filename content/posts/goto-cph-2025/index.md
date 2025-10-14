@@ -28,7 +28,7 @@ Whether you use any of the plethora of AI tools now available, and regardless of
 
 ## "Shitty but Amazing"
 
-**Lu Wilson** used this memorable phrase in an excellent session about how the "canvas," or interface we use to interact with LLMs, might become much richer than the boring, old ChatGPT chat interface (and go check out the [tl;draw](https://tldraw.com) tool demoed during the session).
+**Lu Wilson** used this memorable phrase in an [excellent talk](https://gotocph.com/2025/sessions/3773/beyond-chat-bringing-models-to-the-canvas) by about how the "canvas," or interface we use to interact with LLMs, might become much richer than the boring, old ChatGPT chat interface (and go check out the [tl;draw](https://tldraw.com) tool demoed during the session).
 
 The phrase described the output from LLMs themselves, and it resonates with users of the technology. Watching a model determine how it should try to answer a query can be as amazing as its answer is bad—not to mention the infamous "hallucinations."
 
@@ -60,7 +60,7 @@ This is fine, or even desirable, in many use cases, but it's quite terrible for 
 
 The main opinion here was to break up any programmatic interaction with LLMs into as small and predictable pieces as possible and implement retries when the output differs from what you expect—just how we generally treat distributed systems.
 
-However, it got me wondering: if we have to work so hard to limit the tool that was essentially designed without limits (or beyond known limits), maybe we should just _do the thing_ that we're trying to get the model to do?
+However, it got me wondering: if we have to work so hard to limit the tool that was essentially designed without limits ([or beyond known limits](https://www.oxfordreference.com/display/10.1093/oi/authority.20110803100258143)), maybe we should just _do the thing_ that we're trying to get the model to do?
 
 The balance here is up for debate, but at least answering the question is wise, instead of throwing any and every query, no matter how big, small, sophisticated, or stupid, at a giant LLM.
 
@@ -77,9 +77,9 @@ Two things stood out to me (based on audience questions):
 
 Seemingly gone are the days of, _"you get a CS degree and I give you a $100,000+ / year salary, plus stock options!"_ This is understandably concerning to people who likely entered their studies under what now feels like a set of false pretenses.
 
-While acknowledging that concern, this might be somewhat healthy, as it provides a taste of what almost every other person experiences in their education-to-gainful-employment journey. At least, that's my perspective as someone who was educated and has worked in an entirely different industry.
+While acknowledging that concern, this might be somewhat healthy, as it provides a taste of what almost every other person experiences in their education-to-gainful-employment journey. At least, that's my perspective as someone who was educated and has worked in an [entirely different industry](/posts/switch-to-software-engineering).
 
-That said, the second point hints at what I consider a larger unease in the profession as a whole—not just for the less experienced. This is completely expected. For a profession that has enjoyed a sense of vocational awe and golden handcuffs for several decades, it can feel vulnerable as parts of it seem to be crumbling, with non-traditional developers and "laypeople" starting to deploy their own applications.
+That said, the second point hints at what I consider a larger unease in the profession as a whole—not just for the less experienced. This is completely expected. For a profession that has enjoyed a sense of [vocational awe](https://www.inthelibrarywiththeleadpipe.org/2018/vocational-awe/) and golden handcuffs for several decades, it can feel vulnerable as parts of it seem to be crumbling, with non-traditional developers and "laypeople" starting to deploy their own applications.
 
 I have no answers here, other than _time will tell._ When the dust settles after the current hype train finally comes to a stop (or derails), let's hope the existence of our profession remains justifiable—and not just for those already in it.
 

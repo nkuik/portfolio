@@ -1,124 +1,461 @@
-<!doctype html><html lang=en><head><title>Automated Mobile iOS & Android Builds using Fastlane and CircleCI · Home</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Nathan Kuik"><meta name=description content="I was recently tasked with automating the iOS and Android build and releases at
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Automated Mobile iOS &amp; Android Builds using Fastlane and CircleCI · Home
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Nathan Kuik">
+<meta name="description" content="I was recently tasked with automating the iOS and Android build and releases at
 my work last month. We had some compliance checks coming up, and instead of
-making 2+ dev machines a part of the audit process, the decision was made to
+making 2&#43; dev machines a part of the audit process, the decision was made to
 fully automate the build and release process.
 After doing some initial digging, I realized that there was a bit more to it
 than I had first thought, primarily due to the fact that the current process
 involved a designated individual from each team doing a manual clean build and
 upload, using shared certificates and keys. While it was theoretically possible
 that the compliance check could audit the existing process (e.g., dev machines),
-it would be less than ideal."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Automated Mobile iOS & Android Builds using Fastlane and CircleCI"><meta name=twitter:description content="I was recently tasked with automating the iOS and Android build and releases at my work last month. We had some compliance checks coming up, and instead of making 2+ dev machines a part of the audit process, the decision was made to fully automate the build and release process.
-After doing some initial digging, I realized that there was a bit more to it than I had first thought, primarily due to the fact that the current process involved a designated individual from each team doing a manual clean build and upload, using shared certificates and keys. While it was theoretically possible that the compliance check could audit the existing process (e.g., dev machines), it would be less than ideal."><meta property="og:url" content="https://nathankuik.com/posts/automating-mobile-app-builds-releases/"><meta property="og:site_name" content="Home"><meta property="og:title" content="Automated Mobile iOS & Android Builds using Fastlane and CircleCI"><meta property="og:description" content="I was recently tasked with automating the iOS and Android build and releases at my work last month. We had some compliance checks coming up, and instead of making 2+ dev machines a part of the audit process, the decision was made to fully automate the build and release process.
-After doing some initial digging, I realized that there was a bit more to it than I had first thought, primarily due to the fact that the current process involved a designated individual from each team doing a manual clean build and upload, using shared certificates and keys. While it was theoretically possible that the compliance check could audit the existing process (e.g., dev machines), it would be less than ideal."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-06-02T08:00:00+01:00"><meta property="article:modified_time" content="2021-06-02T08:00:00+01:00"><meta property="article:tag" content="Mobile"><meta property="article:tag" content="Ci/Cd"><meta property="article:tag" content="Fastlane"><meta property="article:tag" content="Circleci"><meta property="article:tag" content="Ios"><meta property="article:tag" content="Android"><link rel=canonical href=https://nathankuik.com/posts/automating-mobile-app-builds-releases/><link rel=preload href=https://nathankuik.com/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=https://nathankuik.com/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=https://nathankuik.com/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=https://nathankuik.com/css/coder.min.4b392a85107b91dbdabc528edf014a6ab1a30cd44cafcd5325c8efe796794fca.css integrity="sha256-SzkqhRB7kdvavFKO3wFKarGjDNRMr81TJcjv55Z5T8o=" crossorigin=anonymous media=screen><link rel=stylesheet href=https://nathankuik.com/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=https://nathankuik.com/images/favicon.svg sizes=any><link rel=icon type=image/png href=https://nathankuik.com/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://nathankuik.com/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=https://nathankuik.com/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=https://nathankuik.com/images/apple-touch-icon.png><link rel=manifest href=https://nathankuik.com/site.webmanifest><link rel=mask-icon href=https://nathankuik.com/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://nathankuik.com/>Home
-</a><input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://nathankuik.com/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=https://nathankuik.com/talks/>Talks</a></li><li class=navigation-item><a class=navigation-link href=https://nathankuik.com/about/>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://nathankuik.com/posts/automating-mobile-app-builds-releases/>Automated Mobile iOS & Android Builds using Fastlane and CircleCI</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=2021-06-02T08:00:00+01:00>June 2, 2021
-</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-6-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
-<a href=https://nathankuik.com/categories/mobile/>Mobile</a>
-<span class=separator>•</span>
-<a href=https://nathankuik.com/categories/ci/cd/>Ci/Cd</a>
-<span class=separator>•</span>
-<a href=https://nathankuik.com/categories/devops/>Devops</a>
-<span class=separator>•</span>
-<a href=https://nathankuik.com/categories/cloud/>Cloud</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
-<span class=tag><a href=https://nathankuik.com/tags/mobile/>Mobile</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=https://nathankuik.com/tags/ci/cd/>Ci/Cd</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=https://nathankuik.com/tags/fastlane/>Fastlane</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=https://nathankuik.com/tags/circleci/>Circleci</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=https://nathankuik.com/tags/ios/>Ios</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=https://nathankuik.com/tags/android/>Android</a></span></div></div></header><div class=post-content><p>I was recently tasked with automating the iOS and Android build and releases at
+it would be less than ideal.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Automated Mobile iOS & Android Builds using Fastlane and CircleCI">
+  <meta name="twitter:description" content="I was recently tasked with automating the iOS and Android build and releases at my work last month. We had some compliance checks coming up, and instead of making 2&#43; dev machines a part of the audit process, the decision was made to fully automate the build and release process.
+After doing some initial digging, I realized that there was a bit more to it than I had first thought, primarily due to the fact that the current process involved a designated individual from each team doing a manual clean build and upload, using shared certificates and keys. While it was theoretically possible that the compliance check could audit the existing process (e.g., dev machines), it would be less than ideal.">
+
+<meta property="og:url" content="http://localhost:1313/posts/automating-mobile-app-builds-releases/">
+  <meta property="og:site_name" content="Home">
+  <meta property="og:title" content="Automated Mobile iOS & Android Builds using Fastlane and CircleCI">
+  <meta property="og:description" content="I was recently tasked with automating the iOS and Android build and releases at my work last month. We had some compliance checks coming up, and instead of making 2&#43; dev machines a part of the audit process, the decision was made to fully automate the build and release process.
+After doing some initial digging, I realized that there was a bit more to it than I had first thought, primarily due to the fact that the current process involved a designated individual from each team doing a manual clean build and upload, using shared certificates and keys. While it was theoretically possible that the compliance check could audit the existing process (e.g., dev machines), it would be less than ideal.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-06-02T08:00:00+01:00">
+    <meta property="article:modified_time" content="2021-06-02T08:00:00+01:00">
+    <meta property="article:tag" content="Mobile">
+    <meta property="article:tag" content="Ci/Cd">
+    <meta property="article:tag" content="Fastlane">
+    <meta property="article:tag" content="Circleci">
+    <meta property="article:tag" content="Ios">
+    <meta property="article:tag" content="Android">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/automating-mobile-app-builds-releases/">
+
+
+<link rel="preload" href="http://localhost:1313/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="http://localhost:1313/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="http://localhost:1313/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/images/apple-touch-icon.png">
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="mask-icon" href="http://localhost:1313/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Home
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/talks/">Talks</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/automating-mobile-app-builds-releases/">
+              Automated Mobile iOS &amp; Android Builds using Fastlane and CircleCI
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-06-02T08:00:00&#43;01:00">
+                June 2, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="http://localhost:1313/categories/mobile/">Mobile</a>
+      <span class="separator">•</span>
+    <a href="http://localhost:1313/categories/ci/cd/">Ci/Cd</a>
+      <span class="separator">•</span>
+    <a href="http://localhost:1313/categories/devops/">Devops</a>
+      <span class="separator">•</span>
+    <a href="http://localhost:1313/categories/cloud/">Cloud</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/mobile/">Mobile</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/ci/cd/">Ci/Cd</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/fastlane/">Fastlane</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/circleci/">Circleci</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/ios/">Ios</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/android/">Android</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>I was recently tasked with automating the iOS and Android build and releases at
 my work last month. We had some compliance checks coming up, and instead of
 making 2+ dev machines a part of the audit process, the decision was made to
-fully automate the build and release process.</p><p>After doing some initial digging, I realized that there was a bit more to it
+fully automate the build and release process.</p>
+<p>After doing some initial digging, I realized that there was a bit more to it
 than I had first thought, primarily due to the fact that the current process
 involved a designated individual from each team doing a manual clean build and
 upload, using shared certificates and keys. While it was theoretically possible
 that the compliance check could audit the existing process (e.g., dev machines),
-it would be less than ideal.</p><p>Developing the pipelines would require:</p><ul><li>Running builds on linux (Android) and macOS (iOS) machines</li><li>Handling of app signing keys/certificates so developers could not create a
-production build on their machines</li><li>Considering how gradle (Android) and Cocoapod (iOS) dependencies would be
-handled</li><li>Uploading app build artifacts to Google Play Store (Android), Firebase App
-Distribution (Android), and TestFlight (iOS)</li><li>Allowing branch-dependent flows that meet each teams testing and distribution
-needs</li></ul><p>After spending some time considering these requirements for both the iOS and
-Android build/release processes, I wanted the following to be true:</p><ol><li>Each app&rsquo;s build/release would not be comprised of a long bash script</li><li>As identical build processes between apps as possible</li><li>No unencrypted signing keys/certificates in the repo or lying around on the
-devs&rsquo; machines</li><li>Minimal manual management (creation, renewal, revocation) of signing
-keys/certificates</li><li>Making new production releases would still be possible while I was automating
-the process</li><li>Both iOS and Android builds/releases would run in the &ldquo;same place&rdquo;</li><li>No managing our own Mac instance <em>somewhere</em> (<strong>No Mac Minis in a random
-maintenance room!</strong>)</li></ol><p>Cursory research revealed a few different options, but there was a general
+it would be less than ideal.</p>
+<p>Developing the pipelines would require:</p>
+<ul>
+<li>Running builds on linux (Android) and macOS (iOS) machines</li>
+<li>Handling of app signing keys/certificates so developers could not create a
+production build on their machines</li>
+<li>Considering how gradle (Android) and Cocoapod (iOS) dependencies would be
+handled</li>
+<li>Uploading app build artifacts to Google Play Store (Android), Firebase App
+Distribution (Android), and TestFlight (iOS)</li>
+<li>Allowing branch-dependent flows that meet each teams testing and distribution
+needs</li>
+</ul>
+<p>After spending some time considering these requirements for both the iOS and
+Android build/release processes, I wanted the following to be true:</p>
+<ol>
+<li>Each app&rsquo;s build/release would not be comprised of a long bash script</li>
+<li>As identical build processes between apps as possible</li>
+<li>No unencrypted signing keys/certificates in the repo or lying around on the
+devs&rsquo; machines</li>
+<li>Minimal manual management (creation, renewal, revocation) of signing
+keys/certificates</li>
+<li>Making new production releases would still be possible while I was automating
+the process</li>
+<li>Both iOS and Android builds/releases would run in the &ldquo;same place&rdquo;</li>
+<li>No managing our own Mac instance <em>somewhere</em> (<strong>No Mac Minis in a random
+maintenance room!</strong>)</li>
+</ol>
+<p>Cursory research revealed a few different options, but there was a general
 consensus regarding one of the best tools to use structuring the build and
 release for both platforms, and that tool is
-<a href=https://fastlane.tools/ class=external-link target=_blank rel=noopener>fastlane</a>.</p><h2 id=fastlane--an-oldie-but-a-goodie>Fastlane &ndash; an oldie but a goodie
-<a class=heading-link href=#fastlane--an-oldie-but-a-goodie><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>Acquired in 2017 by Google, fastlane is an open-source project designed with a
+<a href="https://fastlane.tools/"  class="external-link" target="_blank" rel="noopener">fastlane</a>.</p>
+<h2 id="fastlane--an-oldie-but-a-goodie">
+  Fastlane &ndash; an oldie but a goodie
+  <a class="heading-link" href="#fastlane--an-oldie-but-a-goodie">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Acquired in 2017 by Google, fastlane is an open-source project designed with a
 number of actions (built in methods, essentially) and extendable plugins that
 can be used to take screenshots, build, and sign both iOS and Android
 applications. While teams use fastlane for doing builds and uploads both locally
-and on their build servers, neither team at my company was using it.</p><p>Fastlane&rsquo;s builtin and plugin-able actions would mean that I wouldn&rsquo;t need to
+and on their build servers, neither team at my company was using it.</p>
+<p>Fastlane&rsquo;s builtin and plugin-able actions would mean that I wouldn&rsquo;t need to
 reinvent the wheel and script the builds and releases for both iOS and Android.
 While bash and curl share a warm (and sometimes cursed) place in my heart,
-sometimes it&rsquo;s nicer to use someone else&rsquo;s clear, easily implementable code.</p><p>In addition, the structure of the apps&rsquo; repos would also mirror each other in
+sometimes it&rsquo;s nicer to use someone else&rsquo;s clear, easily implementable code.</p>
+<p>In addition, the structure of the apps&rsquo; repos would also mirror each other in
 their structure, so determining the build/release process across the apps would
-be straightforward.</p><p>I decided that using fastlane for automating builds and releases would help me
+be straightforward.</p>
+<p>I decided that using fastlane for automating builds and releases would help me
 check off, or at least would get me closer to checking off, the following from
-my requirement list:</p><ol><li><input checked disabled type=checkbox> Each app&rsquo;s build/release would not be comprised of a long bash script</li><li><input checked disabled type=checkbox> As similar build processes between apps as possible</li></ol><h2 id=app-signing>App Signing
-<a class=heading-link href=#app-signing><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>Both mobile apps need to be signed, and while the concept is largely the same
+my requirement list:</p>
+<ol>
+<li><input checked="" disabled="" type="checkbox"> Each app&rsquo;s build/release would not be comprised of a long bash script</li>
+<li><input checked="" disabled="" type="checkbox"> As similar build processes between apps as possible</li>
+</ol>
+<h2 id="app-signing">
+  App Signing
+  <a class="heading-link" href="#app-signing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Both mobile apps need to be signed, and while the concept is largely the same
 between platforms, the implentation differs a bit &ndash; including on fastlane side
-of things.</p><p>For iOS, fastlane has something called
-<a href=https://docs.fastlane.tools/actions/match/ class=external-link target=_blank rel=noopener>match</a>, which is a tool that works
+of things.</p>
+<p>For iOS, fastlane has something called
+<a href="https://docs.fastlane.tools/actions/match/"  class="external-link" target="_blank" rel="noopener">match</a>, which is a tool that works
 directly with the App Store Connect API to manage your app&rsquo;s certificate. While
 it is mostly for automatically managing your certs and profiles, it is also
-possible to import and use pre-existing certificates.</p><p>Since I needed to make sure I didn&rsquo;t break the current app distribution setup,
+possible to import and use pre-existing certificates.</p>
+<p>Since I needed to make sure I didn&rsquo;t break the current app distribution setup,
 the ability to keep the same certificate was important. In addition, using a
-tool like match to manage certs makes generating new ones straightforward.</p><p>Finally, since there are multiple options for storing the encrypted certs,
+tool like match to manage certs makes generating new ones straightforward.</p>
+<p>Finally, since there are multiple options for storing the encrypted certs,
 including a private git repository, S3, and Google Storage Buckets, it is
 possible to still gain secure access to the certificates from multiple
 locations, while simultaneously controlling access to them in a granular
 fashion. This effectively meant that I could create a setup where encrypted
-certificates were stored in a place only the build server could access.</p><p>Since fastlane match is quite nice for handling iOS certs, how about Android
+certificates were stored in a place only the build server could access.</p>
+<p>Since fastlane match is quite nice for handling iOS certs, how about Android
 Play Store? There is no match for Android, and this seems largely due to the
 fact that the Play Store has a feature to &ldquo;let&rdquo; the Play Store manage your app&rsquo;s
-signing key, called <a href="https://support.google.com/googleplay/android-developer/answer/9842756?hl=en" class=external-link target=_blank rel=noopener>Play App
-Signing</a>.</p><p>While this can be a good option &ndash; it helps prevent issues related to sharing
+signing key, called <a href="https://support.google.com/googleplay/android-developer/answer/9842756?hl=en"  class="external-link" target="_blank" rel="noopener">Play App
+Signing</a>.</p>
+<p>While this can be a good option &ndash; it helps prevent issues related to sharing
 and storing signing keys (Play Store holds the signing key and provides an
 upload key, which is then used to upload the app to the Play Store) &ndash; it is
 literally impossible opt out of Play App Signing after one has opted in. New
 apps are automatically enrolled, but if you have an existing app and are
-considering switching, just be sure of the ramifications.</p><p>In practice, this resulted in saving an encrypted upload key on the environment
+considering switching, just be sure of the ramifications.</p>
+<p>In practice, this resulted in saving an encrypted upload key on the environment
 of the build server that is used to sign the app before uploading to the Play
 Store. If the upload key is lost or compromised, a new one can be requested
 through the Play Store. This is not the case for the original signing key (the
 one Google manages when using Play App Signing). If the original signing key is
-lost or compromised, there is no option to be issued a new.</p><p>We needed to enroll our app into Play App Signing, but after we did this and
+lost or compromised, there is no option to be issued a new.</p>
+<p>We needed to enroll our app into Play App Signing, but after we did this and
 started using match to manage the iOS app&rsquo;s certs, I could check some remaining
-requirements:</p><ol start=3><li><input checked disabled type=checkbox> No unencrypted signing keys/certificates in the repo or lying around on
-the devs&rsquo; machines</li><li><input checked disabled type=checkbox> Minimal manual management of signing keys/certificates</li><li><input checked disabled type=checkbox> It would still be possible to make a new production release while I was
-automating the process</li></ol><h2 id=circleci>CircleCI
-<a class=heading-link href=#circleci><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>Now we come to the final component, which is running the actual builds. There
+requirements:</p>
+<ol start="3">
+<li><input checked="" disabled="" type="checkbox"> No unencrypted signing keys/certificates in the repo or lying around on
+the devs&rsquo; machines</li>
+<li><input checked="" disabled="" type="checkbox"> Minimal manual management of signing keys/certificates</li>
+<li><input checked="" disabled="" type="checkbox"> It would still be possible to make a new production release while I was
+automating the process</li>
+</ol>
+<h2 id="circleci">
+  CircleCI
+  <a class="heading-link" href="#circleci">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Now we come to the final component, which is running the actual builds. There
 are many options for CI/CD services these days, including ones that are targeted
 directly for doing app builds. Since I was using fastlane, which is
-service-agnostic, I could have run builds on almost any service.</p><p>But since I was working with a deadline, my biggest concern was avoiding the
+service-agnostic, I could have run builds on almost any service.</p>
+<p>But since I was working with a deadline, my biggest concern was avoiding the
 hosting our own macOS machine. This would likely end up being costly, requiring
 developer time for patching/updates, and raising the risk of downtime. After
 looking over pricing, documentation, and user experience, I decided to go with
-CircleCI.</p><p>CircleCI has strong support for fastlane, has good documentation for setting
+CircleCI.</p>
+<p>CircleCI has strong support for fastlane, has good documentation for setting
 updates iOS and Android builds, and has macOS machines available to use
 out-of-the-box. After perusing the documentation and giving it a little test, I
 determined I would be able to make long strides quickly with CircleCI. After
 having implemented the end-to-end builds and releases for our iOS and Android
-apps, I still feel good about choosing CircleCI.</p><p>In addition, it helped me cross off the final requirements from my list:</p><ol start=6><li><input checked disabled type=checkbox> Both iOS and Android builds/releases would run in the &ldquo;same place&rdquo;</li><li><input checked disabled type=checkbox> No managing our own Mac instance <em>somewhere</em> (<strong>No Mac Minis in a random
-maintenance room!</strong>)</li></ol><p>All in all, the process was fun to automate, and it was a good experience using
+apps, I still feel good about choosing CircleCI.</p>
+<p>In addition, it helped me cross off the final requirements from my list:</p>
+<ol start="6">
+<li><input checked="" disabled="" type="checkbox"> Both iOS and Android builds/releases would run in the &ldquo;same place&rdquo;</li>
+<li><input checked="" disabled="" type="checkbox"> No managing our own Mac instance <em>somewhere</em> (<strong>No Mac Minis in a random
+maintenance room!</strong>)</li>
+</ol>
+<p>All in all, the process was fun to automate, and it was a good experience using
 relatively mature tools to complete the job. The most challenging parts were
 determining the best strategy for app signing and ensuring developer&rsquo;s could
 work and distribute as normal while automating the process, but I will have more
-on those topics in a later post.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
-2025
-Nathan Kuik
-·
-Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=https://nathankuik.com/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script defer src=https://static.cloudflareinsights.com/beacon.min.js data-cf-beacon='{"token": "f32f4e211b3a405cadd13585a2bb4310"}'></script></body></html>
+on those topics in a later post.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2025
+     Nathan Kuik 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="http://localhost:1313/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "f32f4e211b3a405cadd13585a2bb4310"}'></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
