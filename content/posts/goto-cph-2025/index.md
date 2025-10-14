@@ -23,7 +23,7 @@ Thus, I wanted to take some time to summarize my learnings and observations from
 
 ---
 
-## The “Genie” in the Room
+## The Genie is Out of the Bottle
 
 "AI this, GenAI that, blah, blah, blah." We've all heard it and now block it out. I generally accept that GenAI, LLMs, and the like are here to stay (though I can't say I'm thrilled about it), but the hype train is real and unavoidable.
 
@@ -96,9 +96,8 @@ In the meantime, let's keep focusing on our craft, and remind ourselves that Gen
 
 ---
 
-## Conclusion
+## Final Thoughts
 
 Thanks for taking time to read my thoughts and musings, all entirely dependent on the presentations I chose to attend. As Martin Fowler advised a less experienced software engineer: _focus on the time between your Jira tickets,_ as this will provide the greatest opportunity for growth—that's where I found the time to write this article.
 
-And yes, for those wondering, I did feed this article through an LLM before publishing  
-(_prompt: "make me sound more interesting than I am" 😛_).
+And yes, for those wondering, I did feed this article through an LLM before publishing...
