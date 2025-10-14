@@ -2,16 +2,7 @@
 title: "GOTO Copenhagen 2025"
 date: 2025-10-13T10:00:00+02:00
 draft: false
-tags:
-  [
-    "conference",
-    "GOTO",
-    "Copenhagen",
-    "GenAI",
-    "AI",
-    "LLM",
-    "software development",
-  ]
+tags: ["conference", "GenAI", "LLM", "software development"]
 categories: ["devops", "genai", "software development", "conference"]
 ---
 
