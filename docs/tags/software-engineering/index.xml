@@ -1,3 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Engineering on Home</title><link>https://nathankuik.com/tags/software-engineering/</link><description>Recent content in Software Engineering on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 15 Jan 2016 10:00:00 +0200</lastBuildDate><atom:link href="https://nathankuik.com/tags/software-engineering/index.xml" rel="self" type="application/rss+xml"/><item><title>From Social Work to Software Engineering</title><link>https://nathankuik.com/posts/switch-to-software-engineering/</link><pubDate>Fri, 15 Jan 2016 10:00:00 +0200</pubDate><guid>https://nathankuik.com/posts/switch-to-software-engineering/</guid><description>&lt;p&gt;Between 2016 and 2018, I made one of the biggest transitions of my life (besides moving from the US to Denmark): from clinical social work to software engineering.&lt;/p&gt;
-&lt;p&gt;I won&amp;rsquo;t bore you with the details; this is really jus a placeholder post to describe a gap.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;This post is part of my personal journey. You can read more in &lt;a href="https://nathankuik.com/posts/my-mandatory-junior-web-dev-post" &gt;my next post&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Engineering on Home</title>
+    <link>http://localhost:1313/tags/software-engineering/</link>
+    <description>Recent content in Software Engineering on Home</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Jan 2016 10:00:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Social Work to Software Engineering</title>
+      <link>http://localhost:1313/posts/switch-to-software-engineering/</link>
+      <pubDate>Fri, 15 Jan 2016 10:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/posts/switch-to-software-engineering/</guid>
+      <description>&lt;p&gt;Between 2016 and 2018, I made one of the biggest transitions of my life (besides moving from the US to Denmark): from clinical social work to software engineering.&lt;/p&gt;&#xA;&lt;p&gt;I won&amp;rsquo;t bore you with the details; this is really jus a placeholder post to describe a gap.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;This post is part of my personal journey. You can read more in &lt;a href=&#34;http://localhost:1313/posts/my-mandatory-junior-web-dev-post&#34; &gt;my next post&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
