@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Career on Home</title>
-    <link>http://localhost:1313/categories/career/</link>
+    <link>https://nathankuik.com/categories/career/</link>
     <description>Recent content in Career on Home</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 15 Jan 2016 10:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/career/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nathankuik.com/categories/career/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From Social Work to Software Engineering</title>
-      <link>http://localhost:1313/posts/switch-to-software-engineering/</link>
+      <link>https://nathankuik.com/posts/switch-to-software-engineering/</link>
       <pubDate>Fri, 15 Jan 2016 10:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/switch-to-software-engineering/</guid>
-      <description>&lt;p&gt;Between 2016 and 2018, I made one of the biggest transitions of my life (besides moving from the US to Denmark): from clinical social work to software engineering.&lt;/p&gt;&#xA;&lt;p&gt;I won&amp;rsquo;t bore you with the details; this is really jus a placeholder post to describe a gap.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;This post is part of my personal journey. You can read more in &lt;a href=&#34;http://localhost:1313/posts/my-mandatory-junior-web-dev-post&#34; &gt;my next post&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</description>
+      <guid>https://nathankuik.com/posts/switch-to-software-engineering/</guid>
+      <description>&lt;p&gt;Between 2016 and 2018, I made one of the biggest transitions of my life (besides moving from the US to Denmark): from clinical social work to software engineering.&lt;/p&gt;&#xA;&lt;p&gt;I won&amp;rsquo;t bore you with the details; this is really jus a placeholder post to describe a gap.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;This post is part of my personal journey. You can read more in &lt;a href=&#34;https://nathankuik.com/posts/my-mandatory-junior-web-dev-post&#34; &gt;my next post&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
