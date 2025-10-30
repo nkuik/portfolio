@@ -1,33 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Personal on Home</title>
-    <link>http://localhost:1313/tags/personal/</link>
-    <description>Recent content in Personal on Home</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 29 Mar 2025 17:00:00 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/personal/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Becoming a Father: Part Two</title>
-      <link>http://localhost:1313/posts/second-son/</link>
-      <pubDate>Sat, 29 Mar 2025 17:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/second-son/</guid>
-      <description>&lt;p&gt;In 2024, our family grew again with the arrival of our second son. His name is Arlo.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Becoming a Father: Part One</title>
-      <link>http://localhost:1313/posts/first-son/</link>
-      <pubDate>Wed, 15 Nov 2023 05:45:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/first-son/</guid>
-      <description>&lt;p&gt;In 2023, our family grew with the arrival of our first son. His name is Nolan.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>From Social Work to Software Engineering</title>
-      <link>http://localhost:1313/posts/switch-to-software-engineering/</link>
-      <pubDate>Fri, 15 Jan 2016 10:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/posts/switch-to-software-engineering/</guid>
-      <description>&lt;p&gt;Between 2016 and 2018, I made one of the biggest transitions of my life (besides moving from the US to Denmark): from clinical social work to software engineering.&lt;/p&gt;&#xA;&lt;p&gt;I won&amp;rsquo;t bore you with the details; this is really jus a placeholder post to describe a gap.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;This post is part of my personal journey. You can read more in &lt;a href=&#34;http://localhost:1313/posts/my-mandatory-junior-web-dev-post&#34; &gt;my next post&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal on Home</title><link>https://nathankuik.com/tags/personal/</link><description>Recent content in Personal on Home</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 29 Mar 2025 17:00:00 +0200</lastBuildDate><atom:link href="https://nathankuik.com/tags/personal/index.xml" rel="self" type="application/rss+xml"/><item><title>Becoming a Father: Part Two</title><link>https://nathankuik.com/posts/second-son/</link><pubDate>Sat, 29 Mar 2025 17:00:00 +0200</pubDate><guid>https://nathankuik.com/posts/second-son/</guid><description>&lt;p&gt;In 2024, our family grew again with the arrival of our second son. His name is Arlo.&lt;/p&gt;</description></item><item><title>Becoming a Father: Part One</title><link>https://nathankuik.com/posts/first-son/</link><pubDate>Wed, 15 Nov 2023 05:45:00 +0200</pubDate><guid>https://nathankuik.com/posts/first-son/</guid><description>&lt;p&gt;In 2023, our family grew with the arrival of our first son. His name is Nolan.&lt;/p&gt;</description></item><item><title>From Social Work to Software Engineering</title><link>https://nathankuik.com/posts/switch-to-software-engineering/</link><pubDate>Fri, 15 Jan 2016 10:00:00 +0200</pubDate><guid>https://nathankuik.com/posts/switch-to-software-engineering/</guid><description>&lt;p&gt;Between 2016 and 2018, I made one of the biggest transitions of my life (besides moving from the US to Denmark): from clinical social work to software engineering.&lt;/p&gt;
+&lt;p&gt;I won&amp;rsquo;t bore you with the details; this is really jus a placeholder post to describe a gap.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post is part of my personal journey. You can read more in &lt;a href="https://nathankuik.com/posts/my-mandatory-junior-web-dev-post" &gt;my next post&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</description></item></channel></rss>
