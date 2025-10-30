@@ -41,13 +41,20 @@ url = "mailto:me@nathankuik.com"
 name = "Blog"
 weight = 1
 url = "/posts/"
+
 [[menu.main]]
 name = "Talks"
 weight = 2
 url = "/talks/"
+
+[[menu.main]]
+name = "Fabulabs"
+weight = 3
+url = "/fabulabs/"
+
 [[menu.main]]
 name = "About"
-weight = 3
+weight = 4
 url = "/about/"
 
 [privacy]
