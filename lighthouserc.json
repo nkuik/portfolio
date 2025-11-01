@@ -20,7 +20,7 @@
             }
         },
         "collect": {
-            "staticDistDir": "./docs"
+            "staticDistDir": "./public"
         }
     }
 }

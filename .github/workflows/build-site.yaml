@@ -1,4 +1,4 @@
-name: build-site
+name: Build and Test PR
 
 on:
   pull_request:
@@ -10,34 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          submodules: recursive
 
-      - name: checkout submodules
-        run: git submodule update --init --recursive
-
-      - name: setup hugo
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.151.0"
+          hugo-version: 'latest'
           extended: true
 
-      - name: build
+      - name: Build
         run: hugo --minify
 
-      - name: run lighthouse ci
-        uses: treosh/lighthouse-ci-action@11.4.0
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@12.6.1
         with:
           configPath: "./lighthouserc.json"
           temporaryPublicStorage: true
           uploadArtifacts: true
-
-      - name: push changes
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add .
-          git commit -m "Build site for $GITHUB_HEAD_REF" || true
-          git push -f origin $GITHUB_HEAD_REF || true
